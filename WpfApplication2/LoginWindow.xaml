@@ -63,14 +63,14 @@
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition MinWidth="115"
 					Width="Auto" />
-				<ColumnDefinition Width="Auto" MinWidth="78" />
+				<ColumnDefinition Width="Auto" MinWidth="102" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" MinHeight="92" />
-				<RowDefinition Height="Auto" MinHeight="40" />
-				<RowDefinition Height="Auto" MinHeight="10" />
-				<RowDefinition Height="Auto" MinHeight="40" />
+				<RowDefinition Height="Auto" MinHeight="50" />
+				<RowDefinition Height="Auto" MinHeight="11" />
+				<RowDefinition Height="Auto" MinHeight="50" />
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
 
@@ -109,16 +109,16 @@
 			</Border>
 			<TextBlock Grid.Column="1"
 				Grid.Row="1"
-				Text="Логин" FontSize="18.667" />
+				Text="Логин" FontSize="21.333" />
 			<TextBox Grid.Column="2"
 				Grid.Row="1"
-				x:Name="txtUserName" FontSize="18.667" Foreground="Black" />
+				x:Name="txtUserName" FontSize="21.333" Foreground="Black" />
 			<TextBlock Grid.Column="1"
 				Grid.Row="3"
-				Text="Пароль" FontSize="18.667" Margin="4" />
+				Text="Пароль" FontSize="21.333" Margin="4" />
 			<PasswordBox Grid.Column="2"
 				Grid.Row="3"
-				x:Name="txtPassword" FontSize="18.667" Foreground="Black" Margin="4" />
+				x:Name="txtPassword" FontSize="21.333" Foreground="Black" Margin="4" />
 			<StackPanel Grid.Column="2"
 				Grid.Row="4"
 				Margin="0,0,4,4"
