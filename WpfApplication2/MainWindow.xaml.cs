@@ -25,9 +25,14 @@ namespace WpfApplication2
 
         private void studentEntry_Click(object sender, RoutedEventArgs e)
         {
-            currentWindow = new StudentWindow(this);
-            currentWindow.Show();
-            this.Hide();
+            //currentWindow = new StudentWindow(this);
+            //currentWindow.Show();
+            //this.Hide();
+
+            currentWindow = new LoginWnd();
+            currentWindow.Owner = this;
+            currentWindow.ShowDialog();
+            //this.Hide();
         }
 
         private void teacherEntry_Click(object sender, RoutedEventArgs e)
