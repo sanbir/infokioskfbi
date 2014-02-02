@@ -1,0 +1,30 @@
+﻿@import url("css/main.css");
+@import url("css/headline.css");
+@import url("css/header.css");
+@import url("css/slider.css");
+@import url("css/content.css");
+@import url("css/out.css");
+@import url("css/in.css");
+@import url("css/fileIcons.css");
+@import url("css/footer.css");
+@import url("css/internal_table_with_without_allocation.css");
+@import url("css/jcarousel/skin.css");
+@import url("css/forms.css");
+
+html, body {
+	height: 100%;
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-width: 1000px;
+	margin: 0 auto;
+	color: #333;
+}
+@font-face {
+    font-family: "Micra-Bold";
+    src: url("fonts/AnoZJaz5.ttf");
+}

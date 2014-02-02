@@ -1,0 +1,290 @@
+﻿<Window x:Class="WpfApplication2.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AboutWindow"  Height="350" Width="525" Closed="Window_Closed" WindowStyle="None" WindowState="Maximized">
+    <Window.Resources>
+
+        <Style x:Key="NextButton"  TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{Binding ElementName=aboutBtn, Path=Background}" />
+            <Setter Property="MinWidth" Value="23" />
+            <Setter Property="MinHeight" Value="23" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate x:Name="btn" TargetType="{x:Type Button}">
+
+                        <Viewbox Width="{TemplateBinding Width}" 
+                                 Height="{TemplateBinding Height}" ClipToBounds="True" >
+                            <Grid Width="200" Height="200">
+                                <Ellipse x:Name="outerEllipse" Fill="{TemplateBinding Background}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="180"/>
+                                <Ellipse x:Name="middleEllepse" Fill="White" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="160"/>
+                                <Ellipse x:Name="innerEllipse" Fill="{TemplateBinding Background}" Margin="30" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="140"/>
+                                <Path Name="sign"
+                                      Fill="{Binding ElementName=aboutBtn, Path=Foreground}"
+                                      Margin="65.597,41.585,41.661,41.673" 
+                                      RenderTransformOrigin="0.5,0.5"
+                                      Data="F1M568.254,-7.43524L568.159,-7.34277 567.977,-7.52246 546.559,-28.9417 525.484,-28.9417 549.787,-4.63446 557.439,3.01532 557.619,3.19629 550.067,10.7549 525.758,35.0583 546.834,35.0583 568.254,13.6429 578.792,3.10254 568.254,-7.43524z" 
+                                      Stretch="Uniform" >
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                        </Viewbox>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property ="Ellipse.Fill" TargetName="outerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property ="Ellipse.Fill" TargetName="outerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                                <Setter Property ="Ellipse.Fill" TargetName="innerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="HomeButton"  TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{Binding ElementName=aboutBtn, Path=Background}" />
+            <Setter Property="MinWidth" Value="23" />
+            <Setter Property="MinHeight" Value="23" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+
+                        <Viewbox Width="{TemplateBinding Width}" 
+                                 Height="{TemplateBinding Height}" ClipToBounds="True" >
+                            <Grid Width="200" Height="200">
+                                <!--<Ellipse x:Name="edgeEllipse" Fill="White" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="200"/>-->
+                                <Ellipse x:Name="outerEllipse" Fill="{TemplateBinding Background}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="180"/>
+                                <Ellipse x:Name="middleEllepse" Fill="White" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="160"/>
+                                <Ellipse x:Name="innerEllipse" Fill="{TemplateBinding Background}" Margin="30" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="140"/>
+                                <Path  Data="F1M1337.43,1007.95L1337.43,1027.45 1350.23,1027.45 1350.23,1010.99 1362.27,1010.99 1362.27,1027.51 1374.51,1027.51 1374.51,1007.83 1356.25,991.558 1337.43,1007.95z M1374.48,995.962L1374.48,985.032 1368.65,985.032 1368.65,990.799 1356.17,979.755 1356.13,979.713 1329.47,1003.31 1333.08,1007.39 1356.13,986.992 1379.2,1007.41 1382.81,1003.34 1374.48,995.962z"
+                                   Stretch="Uniform" 
+                                   Fill="{Binding ElementName=aboutBtn, Path=Foreground}" 
+                                   Margin="50,50,50,50" 
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                        </Viewbox>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property ="Ellipse.Fill" TargetName="outerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property ="Ellipse.Fill" TargetName="outerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                                <Setter Property ="Ellipse.Fill" TargetName="innerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="154*"/>
+            <RowDefinition Height="154*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="175*"/>
+            <ColumnDefinition Width="175*"/>
+            <ColumnDefinition Width="175*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="0" Orientation="Horizontal">
+            <Button x:Name="backBtn" Style="{StaticResource NextButton}" RenderTransformOrigin="0.5,0.5" Margin="0,0,2,0" HorizontalAlignment="Left" VerticalAlignment="Center" Click="backBtn_Click" >
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="forwardBtn" Style="{StaticResource NextButton}" Margin="0,0,2,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Button x:Name="homeBtn" Style="{StaticResource HomeButton}" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Click="homeBtn_Click" />
+        </StackPanel>
+
+        <Button x:Name="aboutBtn" Grid.Row="1"  Margin="4,0,0,4" FontSize="18" Click="aboutBtn_Click">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Path Data="M13.958583,24.422L16.442997,24.422C17.933706,25.484518,19.638317,26.243532,21.458628,26.711039L24.260645,30.713706C24.327045,30.782708,24.414345,30.817809,24.492447,30.867411L20.11072,40.341469C19.866117,40.760777,19.777418,41.211285,20.11072,41.54199L24.526247,45.956165C24.85965,46.29077,25.394651,46.29077,25.727953,45.956165L30.143478,41.54199C30.472881,41.211285,30.472881,40.673475,30.143478,40.341469L25.763355,30.867411C25.844055,30.817809,25.923254,30.782708,25.993855,30.713706L28.794373,26.711039C30.616182,26.243532,32.316589,25.484518,33.810303,24.422L36.294418,24.422C44.002964,24.422,50.253002,30.673306,50.253002,38.380437L50.253002,40.232069 50.253002,43.880529 50.253002,45.323353C50.253002,46.864979,49.002995,48.115,47.461182,48.115L2.7917666,48.115C1.2500074,48.115,0,46.864979,0,45.323353L0,43.880529 0,40.232069 0,38.380437C0,30.673306,6.2500372,24.422,13.958583,24.422z M25.1161,0C31.860701,0 37.327,5.4660378 37.327,12.208251 37.327,18.958224 31.860701,24.423001 25.1161,24.423001 18.3713,24.423001 12.905001,18.958224 12.905001,12.208251 12.905001,5.4660378 18.3713,0 25.1161,0z" Stretch="Uniform" Fill="{Binding ElementName=aboutBtn, Path=Foreground}" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Viewbox>
+
+                <TextBlock Foreground="{Binding ElementName=aboutBtn, Path=Foreground}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0" Grid.Row="1"><Run Language="ru-ru" Text="Декан"/></TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="photoBtn" Grid.Row="1" Margin="4,0,0,4" Grid.Column="1" FontSize="18" Click="photoBtn_Click">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Path Data="M44.40881,39.839051C45.201306,39.83292 53.89151,40.322006 64,63.979 64,63.979 41.790032,54.692505 39.449002,45.163807L44.349961,39.840851C44.349961,39.840851,44.369835,39.839352,44.40881,39.839051z M21.393006,38.521L34.099003,46.755299C29.157486,58.0471 31.744746,61.106999 31.744746,61.106999 20.922894,50.518399 21.393006,38.521 21.393006,38.521z M31.746552,28.848999C30.129223,28.848999 28.817999,30.158955 28.817999,31.776102 28.817999,33.393147 30.129223,34.702999 31.746552,34.702999 33.362278,34.702999 34.675,33.393147 34.675,31.776102 34.675,30.158955 33.362278,28.848999 31.746552,28.848999z M24.923199,22.025999C23.306111,22.025999 21.994999,23.335778 21.994999,24.95295 21.994999,26.570223 23.306111,27.880001 24.923199,27.880001 26.53899,27.880001 27.850001,26.570223 27.850001,24.95295 27.850001,23.335778 26.53899,22.025999 24.923199,22.025999z M39.073315,21.636025C41.005448,21.639975 51.762303,22.11837 61.408001,31.874859 61.408001,31.874859 58.336304,29.304415 47.069058,34.301998L38.768002,21.640286C38.768002,21.640286,38.87344,21.635617,39.073315,21.636025z M16.687451,11.701C14.088433,11.701 11.983,13.807598 11.983,16.406349 11.983,19.002402 14.088433,21.109 16.687451,21.109 19.286268,21.109 21.393002,19.002402 21.393002,16.406349 21.393002,13.807598 19.286268,11.701 16.687451,11.701z M0,0C2.6568733E-07,2.3406301E-07 24.118777,1.2813101 43.744,35.460896 43.744,35.460896 36.586418,40.153698 35.175003,43.447998 35.175003,43.447998 3.4519398,25.096398 0,0z" Stretch="Uniform" Fill="{Binding ElementName=aboutBtn, Path=Foreground}" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Viewbox>
+
+                <TextBlock Foreground="{Binding ElementName=aboutBtn, Path=Foreground}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0" Grid.Row="1"><Run Language="ru-ru" Text="Миссия факультета"/></TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="eventsBtn" Grid.Row="1"  Margin="4,0,0,4" Grid.Column="2" FontSize="18" Click="eventsBtn_Click">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Path Data="M32.970101,42.824001C37.516947,42.824002 41.203002,46.50878 41.203003,51.057053 41.203002,55.602525 37.516947,59.290003 32.970101,59.290003 28.421955,59.290003 24.737,55.602525 24.737,51.057053 24.737,46.50878 28.421955,42.824002 32.970101,42.824001z M8.2329292,42.824001C12.778545,42.824002 16.466,46.50878 16.466,51.057053 16.466,55.602525 12.778545,59.290003 8.2329292,59.290003 3.6848946,59.290003 0,55.602525 0,51.057053 0,46.50878 3.6848946,42.824002 8.2329292,42.824001z M55.767099,42.823998C60.313846,42.823999 64,46.508776 64,51.057051 64,55.602521 60.313846,59.289999 55.767099,59.289999 51.221455,59.289999 47.534,55.602521 47.534,51.057051 47.534,46.508776 51.221455,42.823999 55.767099,42.823998z M30.755001,21.254002L35.604,21.254002 35.604,25.004002 53.555,25.004002 57.193001,25.004002 58.404,25.004002 58.404,37.296001 53.555,37.296001 53.555,29.853002 35.604,29.853002 35.604,37.296001 30.755001,37.296001 30.755001,29.853002 10.867001,29.853002 10.867001,37.296001 6.0180016,37.296001 6.0180016,25.004002 9.2750015,25.004002 10.867001,25.004002 30.755001,25.004002z M32.970101,0C37.516947,0 41.203002,3.6862068 41.203001,8.2319107 41.203002,12.778856 37.516947,16.465002 32.970101,16.465002 28.421955,16.465002 24.737,12.778856 24.737,8.2319107 24.737,3.6862068 28.421955,0 32.970101,0z" Stretch="Uniform" Fill="{Binding ElementName=aboutBtn, Path=Foreground}" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Viewbox>
+
+                <TextBlock Foreground="{Binding ElementName=aboutBtn, Path=Foreground}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0" Grid.Row="1"><Run Language="ru-ru" Text="Кафедры"/></TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="studyBtn" Grid.Row="2"  Margin="4,0,0,4" FontSize="18" Click="studyBtn_Click">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Path Data="M36.601852,42.713003C37.192947,42.713003,37.752842,42.828802,38.289337,42.994202L35.63826,46.270278C35.041965,47.009772 35.388264,48.280663 36.411755,49.108758 37.437744,49.936952 38.752834,50.009751 39.349228,49.272757L41.872604,46.154279C42.187702,46.866473 42.369999,47.650368 42.369999,48.478462 42.369999,51.66474 39.786724,54.246721 36.601852,54.246721 36.002857,54.246721 35.435161,54.130821 34.893467,53.960224L30.002912,60.004381C29.403917,60.744076 28.216429,60.775375 27.349337,60.07218 26.479544,59.369085 26.260746,58.202393 26.859741,57.462898L31.698196,51.479841C31.161802,50.603647 30.833605,49.582654 30.833605,48.478462 30.833605,45.296285 33.416981,42.713003 36.601852,42.713003z M13.104254,35.483002C16.263067,37.8619 20.190182,39.272102 24.442799,39.272102 28.692816,39.272102 32.619934,37.8619 35.778744,35.483002 43.166874,36.4114 48.882999,42.7136 48.882999,50.354301L48.882999,56.871002 34.917984,56.871002 35.604076,56.023172C35.942593,56.072672 36.273304,56.098673 36.601517,56.098673 40.802174,56.098673 44.219002,52.681957 44.219002,48.478838 44.219002,47.424133 44.000191,46.389029 43.565277,45.404624L42.018318,43.320014 41.132885,42.713311 38.833298,41.225004C38.03907,40.981503 37.309841,40.863002 36.601517,40.863001 32.400757,40.863002 28.98403,44.281018 28.98403,48.478838 28.98403,49.419042 29.163736,50.355146 29.512649,51.236751L25.418796,56.299173C25.302824,56.44249,25.200745,56.592936,25.112339,56.749023L25.047565,56.871002 0,56.871002 0,50.354301C-9.6293689E-08,42.7136,5.7161731,36.4114,13.104254,35.483002z M10.993004,17.820002L20.71892,17.820002 22.807222,17.820002 26.880239,17.820002 28.971369,17.820002 37.891903,17.820002 37.916149,17.946512C38.056663,18.732964 38.130001,19.54269 38.130001,20.369552 38.130001,27.929423 31.9998,34.057002 24.442499,34.057002 16.882599,34.057002 10.755,27.929423 10.755,20.369552 10.755,19.54269 10.828303,18.732964 10.968768,17.946512z M30.877674,1.5650024C35.419151,3.9035454 38.531002,8.6300907 38.531002,14.088226 38.531002,14.826519 38.458004,15.543911 38.348709,16.251001L28.336098,16.251001C28.039312,12.325348,27.997616,3.0623627,30.877674,1.5650024z M18.374676,1.3880005C21.700123,2.1250458,21.663723,12.132599,21.353828,16.251001L10.533697,16.251001C10.426899,15.543919 10.354,14.826536 10.354,14.088253 10.354,8.4828854 13.635149,3.6561985 18.374676,1.3880005z M24.442959,0C26.333502,0 28.135549,0.37896347 29.784,1.0546684 26.586096,3.9036674 27.11738,13.947651 27.286674,16.251001L22.406618,16.251001C22.578413,13.889053 23.133097,3.3853683 19.653999,0.85160446 21.151356,0.30999374 22.758108,0 24.442959,0z" Stretch="Uniform" Fill="{Binding ElementName=aboutBtn, Path=Foreground}" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Viewbox>
+
+                <TextBlock Foreground="{Binding ElementName=aboutBtn, Path=Foreground}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0" Grid.Row="1"><Run Language="ru-ru" Text="Направления и специальности"/></TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="newsBtn" Grid.Row="2"  Margin="4,0,0,4"  Grid.Column="1" FontSize="18" Click="newsBtn_Click">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Path Data="F1M643.938,86.1018L625.292,51.9774 625.292,37.4788 625.292,36.092C625.564,34.2985 627.991,35.0673 629.064,34.0433 629.599,32.7658 629.599,30.1994 629.599,30.1994L607.575,30.1994C607.575,30.1994 607.575,32.7658 608.115,34.0433 609.192,35.0673 611.62,34.2985 611.879,36.092L611.879,51.9774 603.112,68.0615 610.802,68.0615 610.802,69.8896 602.108,69.8896 599.308,75.0308 607.103,75.0308 607.103,76.8602 598.31,76.8602 595.748,81.5444 603.586,81.5444 603.586,83.3771 594.756,83.3771 593.263,86.1018C593.263,86.1018,588.353,94.1994,601.365,94.1994L635.828,94.1994C648.844,94.1994,643.938,86.1018,643.938,86.1018z M614.459,63.5458L605.594,63.5458 606.569,61.7177 614.459,61.7177 614.459,63.5458z" Stretch="Uniform" Fill="{Binding ElementName=aboutBtn, Path=Foreground}" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Viewbox>
+
+                <TextBlock Foreground="{Binding ElementName=aboutBtn, Path=Foreground}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0" Grid.Row="1"><Run Language="ru-ru" Text="Учебно-лабораторная база"/></TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="restBtn" Grid.Row="2"  Margin="4,0,0,4" Grid.Column="2" FontSize="18" Click="restBtn_Click">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Path Data="F1M1562.71,2294.84L1550.27,2302.02 1550.27,2294.18 1539.62,2294.18C1543.91,2293.62 1547.22,2289.96 1547.22,2285.52 1547.22,2280.7 1543.31,2276.78 1538.48,2276.78 1534.65,2276.78 1531.4,2279.25 1530.22,2282.69 1529.02,2279.3 1525.79,2276.87 1521.99,2276.87 1517.16,2276.87 1513.25,2280.78 1513.25,2285.61 1513.25,2289.86 1516.29,2293.4 1520.31,2294.18L1509.37,2294.18 1509.37,2315.12 1550.27,2315.12 1550.27,2307.9 1562.71,2315.08 1562.71,2294.84z M1530.25,2288.44C1531.33,2291.49,1534.04,2293.75,1537.34,2294.18L1523.67,2294.18C1526.75,2293.58,1529.25,2291.36,1530.25,2288.44z" Stretch="Uniform" Fill="{Binding ElementName=aboutBtn, Path=Foreground}" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Viewbox>
+
+                <TextBlock Foreground="{Binding ElementName=aboutBtn, Path=Foreground}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0" Grid.Row="1"><Run Language="ru-ru" Text="Видео-презентация факультета БИ"/></TextBlock>
+            </Grid>
+        </Button>
+    </Grid>
+</Window>
