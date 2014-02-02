@@ -29,7 +29,7 @@ namespace WpfApplication2
             //currentWindow.Show();
             //this.Hide();
 
-            currentWindow = new LoginWnd();
+            currentWindow = new LoginWindow();
             currentWindow.Owner = this;
             currentWindow.ShowDialog();
             //this.Hide();
