@@ -54,7 +54,7 @@
                             </StackPanel>
                         </Button>
                         <Image Source="/Images/UniversityLogo.png" Height="400" Margin="0,0,18,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                        <TextBlock Text="СЗИП — единственный специализарованный ВУЗ на Северо-Западе по подготовке кадров для издательско-полиграфической отрасли: редакторов, технологов, журналистов, экономистов, инженеров по оборудованию, IT-специалистов, книговедов, художников-графиков,  рекламистов — специалистов печатного дела." Margin="0,0,18,0" Style="{StaticResource BodyTextStyle}"/>
+                        <TextBlock Text="Миссия факультета &quot;Бизнес-информатика&quot;&#xD;&#xA;■&#x9;Подготовка специалистов в области информационного сопровождения бизнес-процессов, корпоративных информационных систем, IT-индустрии и бизнеса&#xD;&#xA;■&#x9;Разработка, анализ и оптимизация бизнес-процессов предприятия &#xD;&#xA;■&#x9;Проектирование, внедрение и эксплуатация информационных систем &#xD;&#xA;■&#x9;Математическое, информационное и программное обеспечение корпоративных систем и сетей &#xD;&#xA;■&#x9;Эксплуатация информационных систем и сетей &#xD;&#xA;■&#x9;Переподготовка специалистов в ситуации, требующей повышения темпов бизнес-процессов и высокого качества логистики&#xD;&#xA;■&#x9;Переподготовка специалистов с высшим образованием в области информационного сопровождения бизнес-процессов и корпоративных информационных систем для железнодорожного транспорта России &#xD;&#xA;■&#x9;Переподготовка научных и педагогических кадров высшей квалификации в аспирантуре и докторантуре &#xD;&#xA;■&#x9;Выполнение НИОКР в сфере управления организационно-техническими и экономическими системами &#xD;&#xA;■&#x9;Консолидация научных исследований в области бизнес-информатики в университете совместно с предприятиями РЖД" Margin="0,0,18,0" Style="{StaticResource BodyTextStyle}"/>
                     </StackPanel>
                     <StackPanel Width="Auto" Margin="0,0,14,0">
                         <TextBlock Text="Факультеты" Margin="0,0,18,20" Style="{StaticResource SubheaderTextStyle}" MaxHeight="60"/>
@@ -71,11 +71,11 @@
                             IsItemClickEnabled="True"
                             ItemClick="FacClicked" Height="550"/>
                     </StackPanel>
-                    <StackPanel Width="480">
+                    <!--<StackPanel Width="480">
                         <TextBlock Text="Карта" Margin="0,0,18,20" Style="{StaticResource SubheaderTextStyle}" MaxHeight="60"/>
                         <TextBlock Text="Санкт-Петербург, пер. Джамбула, 13" Margin="0,0,18,20" Style="{StaticResource TitleTextStyle}" MaxHeight="60"/>
                         <Image Source="/Images/Map.png" Height="400" Margin="0,0,18,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                    </StackPanel>
+                    </StackPanel>-->
                 </StackPanel>
             </GridView.Header>
             <GridView.ItemContainerStyle>
@@ -130,11 +130,11 @@
                             IsItemClickEnabled="True"
                             ItemClick="FacClicked" Height="Auto"/>
                     </StackPanel>
-                    <StackPanel Width="320">
+                    <!--<StackPanel Width="320">
                         <TextBlock Text="Карта" Margin="0,0,18,20" Style="{StaticResource SubheaderTextStyle}" MaxHeight="60"/>
                         <TextBlock Text="Санкт-Петербург, пер. Джамбула, 13" Margin="0,0,18,20" Style="{StaticResource TitleTextStyle}" MaxHeight="60"/>
                         <Image Source="/Images/Map.png" Height="300" Margin="0,0,18,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                    </StackPanel>
+                    </StackPanel>-->
                 </StackPanel>
             </ListView.Header>
         </ListView>
@@ -146,7 +146,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
-            <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Северо-Западный Институт Печати" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
+            <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Факультет Бизнес-информатики" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
 
         <VisualStateManager.VisualStateGroups>

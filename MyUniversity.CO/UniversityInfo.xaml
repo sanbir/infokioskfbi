@@ -13,7 +13,7 @@
     <Page.Resources>
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">Северо-Западный Институт Печати</x:String>
+        <x:String x:Key="AppName">Факультет Бизнес-информатики</x:String>
     </Page.Resources>
 
     <!--
