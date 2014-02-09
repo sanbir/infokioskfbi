@@ -9,7 +9,7 @@
 
         <!-- Ресурсы, зависящие от приложения -->
 
-        <x:String x:Key="AppName">App1</x:String>
+        <x:String x:Key="AppName">Факультет Бизнес-информатики</x:String>
 
     </Application.Resources>
 </Application>

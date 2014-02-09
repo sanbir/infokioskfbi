@@ -59,7 +59,21 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
-                            <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                            <Viewbox Margin="10" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}">
+                                <Grid>
+                                    <Path Fill="White" Data="{Binding ImagePath}" 
+                                              Stretch="Uniform"  
+                                              Width="26" Height="26" 
+                                              Margin="0" RenderTransformOrigin="0.5,0.5">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Grid>
+                            </Viewbox>
                         </Border>
                         <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,0,0,0">
                             <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap"/>
@@ -72,7 +86,22 @@
             <GridView.Header>
                 <StackPanel Width="480" Margin="0,4,14,0">
                     <TextBlock Text="{Binding Subtitle}" Margin="0,0,0,20" Style="{StaticResource SubheaderTextBlockStyle}" MaxHeight="60"/>
-                    <Image Source="{Binding ImagePath}" Height="400" Margin="0,0,0,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                    <!--<Image Source="{Binding ImagePath}" Height="400" Margin="0,0,0,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>-->
+                    <Viewbox Height="400" Margin="0,0,0,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}">
+                        <Grid>
+                            <Path Fill="White" Data="{Binding ImagePath}" 
+                                              Stretch="Uniform"  
+                                              Width="26" Height="26" 
+                                              Margin="0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                    </Viewbox>
                     <TextBlock Text="{Binding Description}" Margin="0,0,0,0" Style="{StaticResource BodyTextBlockStyle}"/>
                 </StackPanel>
             </GridView.Header>

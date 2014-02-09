@@ -6,7 +6,7 @@
             Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>App1</DisplayName>
+    <DisplayName>Факультет Бизнес-информатики</DisplayName>
     <PublisherDisplayName>Alex</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -25,10 +25,10 @@
         Executable="$targetnametoken$.exe"
         EntryPoint="App1.App">
         <m2:VisualElements
-            DisplayName="App1"
+            DisplayName="Факультет Бизнес-информатики"
             Square150x150Logo="Assets\Logo.png"
             Square30x30Logo="Assets\SmallLogo.png"
-            Description="App1"
+            Description="Факультет Бизнес-информатики"
             ForegroundText="light"
             BackgroundColor="#464646">
             <m2:SplashScreen Image="Assets\SplashScreen.png" />
