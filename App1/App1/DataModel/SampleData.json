@@ -2,9 +2,9 @@
   {
     "UniqueId": "Group-1",
     "Title": "Вход",
-    "Subtitle": "",
-    "ImagePath": "\Assets\FbiLogo.png",
-    "Description" : "Выберите тип учетной записи",
+    "Subtitle": "Выберите тип учетной записи",
+    "ImagePath": "Assets/FbiLogo.png",
+    "Description" : "",
     "Items":
     [
       {
