@@ -86,8 +86,8 @@
             <GridView.Header>
                 <StackPanel Width="480" Margin="0,4,14,0">
                     <TextBlock Text="{Binding Subtitle}" Margin="0,0,0,20" Style="{StaticResource SubheaderTextBlockStyle}" MaxHeight="60"/>
-                    <!--<Image Source="{Binding ImagePath}" Height="400" Margin="0,0,0,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>-->
-                    <Viewbox Height="400" Margin="0,0,0,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}">
+                    <Image Source="{Binding ImagePath}" Height="400" Margin="0,0,0,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                    <!--<Viewbox Height="400" Margin="0,0,0,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}">
                         <Grid>
                             <Path Fill="White" Data="{Binding ImagePath}" 
                                               Stretch="Uniform"  
@@ -101,7 +101,7 @@
                                 </Path.RenderTransform>
                             </Path>
                         </Grid>
-                    </Viewbox>
+                    </Viewbox>-->
                     <TextBlock Text="{Binding Description}" Margin="0,0,0,0" Style="{StaticResource BodyTextBlockStyle}"/>
                 </StackPanel>
             </GridView.Header>

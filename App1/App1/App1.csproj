@@ -130,6 +130,7 @@
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
     <None Include="App1_TemporaryKey.pfx" />
+    <Content Include="Assets\FbiLogo.png" />
     <Content Include="DataModel\SampleData.json" />
   </ItemGroup>
   <ItemGroup>
