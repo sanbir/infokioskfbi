@@ -99,7 +99,7 @@ namespace App1
             var selectedAccountType = (SampleDataItem)e.ClickedItem;
             if (selectedAccountType.Title != "Гость") 
             {
-
+                var a = await Task.Run(App.updateUserName(logInStatus, true));
             }
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
@@ -149,6 +149,15 @@ namespace App1
                 privacyFlyout.Show();
             });
             e.Request.ApplicationCommands.Add(privacyCommand);
+
+            SettingsCommand accountCommand = new SettingsCommand("account", "Account", (handler) =>
+            {
+                Account accountFlyout = new Account();
+                accountFlyout.Show();
+            });
+            e.Request.ApplicationCommands.Add(accountCommand);
         }
+
+
     }
 }
