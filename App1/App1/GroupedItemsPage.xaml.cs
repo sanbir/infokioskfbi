@@ -23,6 +23,8 @@ namespace App1
     /// </summary>
     public sealed partial class GroupedItemsPage : Page
     {
+        public static bool IsLoggedIn = false;
+
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
@@ -119,5 +121,11 @@ namespace App1
         }
 
         #endregion
+
+        private void grdSdow_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            IsLoggedIn = true;
+            AnimationClosed.Begin();
+        }
     }
 }
