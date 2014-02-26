@@ -94,7 +94,7 @@ namespace App1
         /// <param name="sender">Объект GridView (или ListView, если приложение прикреплено),
         /// в котором отображается нажатый элемент.</param>
         /// <param name="e">Данные о событии, описывающие нажатый элемент.</param>
-        void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        async void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var selectedAccountType = (SampleDataItem)e.ClickedItem;
             if (selectedAccountType.Title != "Гость") 
