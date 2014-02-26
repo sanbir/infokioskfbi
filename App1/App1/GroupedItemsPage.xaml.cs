@@ -72,21 +72,6 @@ namespace App1
         }
 
         /// <summary>
-        /// Вызывается при нажатии заголовка группы.
-        /// </summary>
-        /// <param name="sender">Объект Button, используемый в качестве заголовка выбранной группы.</param>
-        /// <param name="e">Данные о событии, описывающие, каким образом было инициировано нажатие.</param>
-        void Header_Click(object sender, RoutedEventArgs e)
-        {
-            // Определение группы, представляемой экземпляром Button
-            var group = (sender as FrameworkElement).DataContext;
-
-            // Переход к соответствующей странице назначения и настройка новой страницы
-            // путем передачи необходимой информации в виде параметра навигации
-            this.Frame.Navigate(typeof(GroupDetailPage), ((SampleDataGroup)group).UniqueId);
-        }
-
-        /// <summary>
         /// Вызывается при нажатии элемента внутри группы.
         /// </summary>
         /// <param name="sender">Объект GridView (или ListView, если приложение прикреплено),
