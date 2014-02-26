@@ -14,18 +14,16 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// Шаблон элемента страницы сгруппированных элементов задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234231
+// Шаблон элемента страницы сведений о группе задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234229
 
 namespace App1
 {
     /// <summary>
-    /// Страница, на которой отображается сгруппированная коллекция элементов.
+    /// Страница, на которой показываются общие сведения об отдельной группе, включая предварительный просмотр элементов
+    /// внутри группы.
     /// </summary>
-    public sealed partial class GroupedItemsPage : Page
+    public sealed partial class GroupDetailPage_Student : Page
     {
-        public static bool IsLoggedIn = false;
-        private static SampleDataItem selectedAccountType;
-
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
@@ -46,7 +44,8 @@ namespace App1
             get { return this.defaultViewModel; }
         }
 
-        public GroupedItemsPage()
+
+        public GroupDetailPage_Student()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
@@ -67,30 +66,22 @@ namespace App1
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             // TODO: Создание соответствующей модели данных для области проблемы, чтобы заменить пример данных
-            var sampleDataGroups = await SampleDataSource.GetGroupsAsync();
-            this.DefaultViewModel["Groups"] = sampleDataGroups;
+            var group = await SampleDataSource_Student.GetGroupAsync((String)e.NavigationParameter);
+            this.DefaultViewModel["Group"] = group;
+            this.DefaultViewModel["Items"] = group.Items;
         }
 
         /// <summary>
-        /// Вызывается при нажатии элемента внутри группы.
+        /// Вызывается при щелчке элемента.
         /// </summary>
-        /// <param name="sender">Объект GridView (или ListView, если приложение прикреплено),
-        /// в котором отображается нажатый элемент.</param>
+        /// <param name="sender">Представление сетки, в котором отображается нажатый элемент.</param>
         /// <param name="e">Данные о событии, описывающие нажатый элемент.</param>
         void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            selectedAccountType = ((SampleDataItem)e.ClickedItem);
-            if (selectedAccountType.Title != "Гость") 
-            {
-                IsLoggedIn = false;
-                grdPassword.Visibility = Visibility.Visible;
-                AnimationOpened.Begin();
-                return;
-            }
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
-            var itemId = selectedAccountType.UniqueId;
-            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            this.Frame.Navigate(typeof(ItemDetailPage_Student), itemId);
         }
 
         #region Регистрация NavigationHelper
@@ -115,26 +106,5 @@ namespace App1
         }
 
         #endregion
-
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            IsLoggedIn = true;
-            AnimationClosed.Begin();
-            var itemId = selectedAccountType.UniqueId;       
-            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
-
-            //if (itemId == "Group-1-Item-1")
-            //{
-            //    this.Frame.Navigate(typeof(GroupDetailPage_Student), itemId);
-            //}
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            IsLoggedIn = false;
-            AnimationClosed.Begin();
-            grdPassword.Visibility = Visibility.Collapsed;
-        }
     }
 }
