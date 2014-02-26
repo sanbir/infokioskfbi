@@ -98,11 +98,11 @@
             IsItemClickEnabled="True"
             ItemClick="ItemView_ItemClick">
             <GridView.ItemTemplate>
-                <DataTemplate>       
+                <DataTemplate>
                     <Viewbox Margin="0,50">
-                    <Grid HorizontalAlignment="Left" Width="250" Height="250">
-                        <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
-                            <Viewbox Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid HorizontalAlignment="Left" Width="250" Height="250">
+                            <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                                <Viewbox Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <Grid>
                                         <Path Fill="White" Data="{Binding ImagePath}" 
                                               Stretch="Uniform"  
@@ -150,7 +150,7 @@
                     </GroupStyle.HeaderTemplate>
                 </GroupStyle>
             </GridView.GroupStyle>
-            
+
         </GridView>
 
         <!-- Кнопка "Назад" и заголовок страницы -->
@@ -171,13 +171,60 @@
 
         <Grid x:Name="grdPassword" Grid.RowSpan="2">
             <Grid x:Name="grdSdow" Tapped="grdSdow_Tapped" Background="#6085691D"/>
-            <Grid x:Name="grdPasswordBnr" Height="80" VerticalAlignment="Center" Margin="0,344" RenderTransformOrigin="0.5,0.5" Background="#FF56330D">
+            <Grid x:Name="grdPasswordBnr" VerticalAlignment="Center" Margin="0,250" RenderTransformOrigin="0.5,0.5" Background="#FF092257">
                 <Grid.RenderTransform>
                     <CompositeTransform/>
                 </Grid.RenderTransform>
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                    <TextBlock TextWrapping="Wrap" Text="Enter Password" VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="20"/>
-                    <PasswordBox MinWidth="220" Margin="10,0,0,0" MaxWidth="220" Background="#FF409DA5" Foreground="White"/>
+                <StackPanel VerticalAlignment="Center" Margin="10">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Вход для зарегистрированных пользователей" MinWidth="220" Foreground="White" FontSize="22" Style="{StaticResource CaptionTextBlockStyle}"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
+                        <TextBox MinWidth="450" MaxWidth="450" Background="#FF409DA5" Foreground="White" PlaceholderText="Логин" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
+                        <PasswordBox MinWidth="450" MaxWidth="450" Background="#FF409DA5" Foreground="White" PlaceholderText="Пароль" FontSize="16"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
+                        <Button x:Name="btnLogin" Padding="5"  Margin="4,4,25,4">
+                            <Button.ContentTemplate>
+                                <DataTemplate>
+                                    <Viewbox>
+                                        <Path Data="M-150.204,626.126C-152.317,626.126 -154.429,626.126 -156.541,626.126 -167.642,633.42 -180.629,646.047 -189.668,657.238 -190.916,658.782 -192.945,662.362 -193.701,662.422 -194.041,662.448 -198.024,659.719 -198.614,659.297 -202.818,656.279 -205.779,653.709 -209.257,650.899 -211.248,652.172 -212.879,653.805 -214.153,655.797 -206.627,665.074 -200.283,675.534 -193.124,685.18 -181.491,665.11 -168.473,644.683 -152.796,629.006 -151.735,627.946 -149.817,626.933 -150.204,626.126z" Stretch="Uniform" 
+							        Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=TemplatedParent}}" Width="80" Height="40" Margin="5" RenderTransformOrigin="0.5,0.5">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <RotateTransform Angle="0" />
+                                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                    </Viewbox>
+                                </DataTemplate>
+                            </Button.ContentTemplate>
+                            
+                        </Button>
+                        <Button x:Name="btnCancel" Padding="5" Margin="4">
+                            <Button.ContentTemplate>
+                                <DataTemplate>
+                                    <Viewbox>
+                                        <Path Data="M51.527958,0L64,12.4741 44.47221,32.001027 64,51.52871 51.528,64.000001 32.000016,44.472668 12.471823,64.000001 0.0010004044,51.528802 19.528015,32.001088 0,12.473726 12.472,0.0010004044 31.999884,19.528773z" 
+							        Stretch="Uniform"
+							        Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+							        Width="80" Height="40" 
+							        Margin="5" RenderTransformOrigin="0.5,0.5">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <RotateTransform Angle="0" />
+                                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                    </Viewbox>
+                                </DataTemplate>
+                            </Button.ContentTemplate>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </Grid>
