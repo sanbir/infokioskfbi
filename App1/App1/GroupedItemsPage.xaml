@@ -25,6 +25,14 @@
             ItemsPath="Items"
             d:Source="{Binding Groups, Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"/>
 
+        <Storyboard x:Name="AnimationOpened">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grdPasswordBnr">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        
         <Storyboard x:Name="AnimationClosed">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grdPasswordBnr">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
@@ -170,7 +178,7 @@
         </Grid>
 
         <!-- Login -->
-        <Grid x:Name="grdPassword" Grid.RowSpan="2">
+        <Grid x:Name="grdPassword" Grid.RowSpan="2" Visibility="Collapsed">
             <Grid x:Name="grdSdow" Tapped="grdSdow_Tapped" Background="#99000000"/>
             <Grid x:Name="grdPasswordBnr" VerticalAlignment="Center" Margin="0,250" RenderTransformOrigin="0.5,0.5" Background="#FF092257">
                 <Grid.RenderTransform>

@@ -130,7 +130,9 @@ namespace App1
 
         private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
-
+            IsLoggedIn = false;
+            grdPassword.Visibility = Visibility.Visible;
+            AnimationOpened.Begin();
         }
     }
 }
