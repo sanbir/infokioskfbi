@@ -24,6 +24,7 @@ namespace App1
     public sealed partial class GroupedItemsPage : Page
     {
         public static bool IsLoggedIn = false;
+        private static SampleDataItem selectedAccountType;
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -93,9 +94,17 @@ namespace App1
         /// <param name="e">Данные о событии, описывающие нажатый элемент.</param>
         void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            selectedAccountType = ((SampleDataItem)e.ClickedItem);
+            if (selectedAccountType.Title != "Гость") 
+            {
+                IsLoggedIn = false;
+                grdPassword.Visibility = Visibility.Visible;
+                AnimationOpened.Begin();
+                return;
+            }
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            var itemId = selectedAccountType.UniqueId;
             this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 
@@ -122,17 +131,20 @@ namespace App1
 
         #endregion
 
-        private void grdSdow_Tapped(object sender, TappedRoutedEventArgs e)
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             IsLoggedIn = true;
             AnimationClosed.Begin();
+            var itemId = selectedAccountType.UniqueId;
+            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 
-        private void pageRoot_Loaded(object sender, RoutedEventArgs e)
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             IsLoggedIn = false;
-            grdPassword.Visibility = Visibility.Visible;
-            AnimationOpened.Begin();
+            AnimationClosed.Begin();
+            grdPassword.Visibility = Visibility.Collapsed;
         }
     }
 }

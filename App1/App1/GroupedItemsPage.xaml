@@ -9,7 +9,6 @@
     xmlns:common="using:App1.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Loaded="pageRoot_Loaded"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -26,15 +25,36 @@
             d:Source="{Binding Groups, Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"/>
 
         <Storyboard x:Name="AnimationOpened">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grdSdow">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.02" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.04" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.06" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="0.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.14" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.16" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.18" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grdPasswordBnr">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.02" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.04" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.06" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="0.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.14" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.16" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.18" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         
         <Storyboard x:Name="AnimationClosed">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grdPasswordBnr">
+            <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grdPasswordBnr">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
@@ -73,7 +93,33 @@
                         <Visibility>Collapsed</Visibility>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
+            </ObjectAnimationUsingKeyFrames>-->
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grdSdow">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.02" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.04" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.06" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="0.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.14" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.16" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.18" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grdPasswordBnr">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.02" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.04" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.06" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="0.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.14" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.16" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.18" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Page.Resources>
 
@@ -179,7 +225,7 @@
 
         <!-- Login -->
         <Grid x:Name="grdPassword" Grid.RowSpan="2" Visibility="Collapsed">
-            <Grid x:Name="grdSdow" Tapped="grdSdow_Tapped" Background="#99000000"/>
+            <Grid x:Name="grdSdow" Background="#99000000"/>
             <Grid x:Name="grdPasswordBnr" VerticalAlignment="Center" Margin="0,250" RenderTransformOrigin="0.5,0.5" Background="#FF092257">
                 <Grid.RenderTransform>
                     <CompositeTransform/>
@@ -195,7 +241,7 @@
                         <PasswordBox MinWidth="450" MaxWidth="450" Background="#FF409DA5" Foreground="White" PlaceholderText="Пароль" FontSize="16"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
-                        <Button x:Name="btnLogin" Padding="5"  Margin="4,4,25,4">
+                        <Button x:Name="btnLogin" Padding="5"  Margin="4,4,25,4" Click="btnLogin_Click">
                             <Button.ContentTemplate>
                                 <DataTemplate>
                                     <Viewbox>
@@ -213,7 +259,7 @@
                             </Button.ContentTemplate>
                             
                         </Button>
-                        <Button x:Name="btnCancel" Padding="5" Margin="4">
+                        <Button x:Name="btnCancel" Padding="5" Margin="4" Click="btnCancel_Click">
                             <Button.ContentTemplate>
                                 <DataTemplate>
                                     <Viewbox>
