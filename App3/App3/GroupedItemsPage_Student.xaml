@@ -58,7 +58,7 @@
                     <Grid HorizontalAlignment="Left" Width="150" Height="150">
                         <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
                             <Grid>
-                                <Path Fill="White" Data="{Binding ImagePath}" 
+                                <Path Fill="{StaticResource MyBlueGrafient}" Data="{Binding ImagePath}" 
                                               Stretch="Uniform"  
                                               Width="100" Height="100" 
                                               Margin="0" RenderTransformOrigin="0.5,0.5">
@@ -123,7 +123,7 @@
             <Viewbox Grid.Column="2">
                 <Path Data="{StaticResource ResourceKey=AppLogo}" 
 							        Stretch="Uniform"
-							        Fill="{Binding Foreground, ElementName=pageTitle}"
+							        Fill="{StaticResource MyBlueGrafient}"
 							        Width="80" Height="40" 
 							        Margin="5" RenderTransformOrigin="0.5,0.5">
                     <Path.RenderTransform>
