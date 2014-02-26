@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using Windows.UI.ApplicationSettings;
+using System.Threading.Tasks;
+
 // Шаблон элемента страницы сгруппированных элементов задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234231
 
 namespace App1
@@ -24,7 +27,6 @@ namespace App1
     public sealed partial class GroupedItemsPage : Page
     {
         public static bool IsLoggedIn = false;
-        private static SampleDataItem selectedAccountType;
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -72,6 +74,21 @@ namespace App1
         }
 
         /// <summary>
+        /// Вызывается при нажатии заголовка группы.
+        /// </summary>
+        /// <param name="sender">Объект Button, используемый в качестве заголовка выбранной группы.</param>
+        /// <param name="e">Данные о событии, описывающие, каким образом было инициировано нажатие.</param>
+        void Header_Click(object sender, RoutedEventArgs e)
+        {
+            // Определение группы, представляемой экземпляром Button
+            var group = (sender as FrameworkElement).DataContext;
+
+            // Переход к соответствующей странице назначения и настройка новой страницы
+            // путем передачи необходимой информации в виде параметра навигации
+            this.Frame.Navigate(typeof(GroupDetailPage), ((SampleDataGroup)group).UniqueId);
+        }
+
+        /// <summary>
         /// Вызывается при нажатии элемента внутри группы.
         /// </summary>
         /// <param name="sender">Объект GridView (или ListView, если приложение прикреплено),
@@ -79,17 +96,9 @@ namespace App1
         /// <param name="e">Данные о событии, описывающие нажатый элемент.</param>
         void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            selectedAccountType = ((SampleDataItem)e.ClickedItem);
-            if (selectedAccountType.Title != "Гость") 
-            {
-                IsLoggedIn = false;
-                grdPassword.Visibility = Visibility.Visible;
-                AnimationOpened.Begin();
-                return;
-            }
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
-            var itemId = selectedAccountType.UniqueId;
+            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
             this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 
@@ -116,25 +125,16 @@ namespace App1
 
         #endregion
 
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private void grdSdow_Tapped(object sender, TappedRoutedEventArgs e)
         {
             IsLoggedIn = true;
             AnimationClosed.Begin();
-            var itemId = selectedAccountType.UniqueId;       
-            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
-
-            //if (itemId == "Group-1-Item-1")
-            //{
-            //    this.Frame.Navigate(typeof(GroupDetailPage_Student), itemId);
-            //}
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            IsLoggedIn = false;
-            AnimationClosed.Begin();
-            grdPassword.Visibility = Visibility.Collapsed;
+
         }
     }
+
 }
