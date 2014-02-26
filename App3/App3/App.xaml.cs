@@ -91,7 +91,7 @@ namespace App1
                 // Если стек навигации не восстанавливается для перехода к первой странице,
                 // настройка новой страницы путем передачи необходимой информации в качестве параметра
                 // навигации
-                rootFrame.Navigate(typeof(GroupedItemsPage), e.Arguments);
+                rootFrame.Navigate(typeof(GroupedItemsPage_Student), e.Arguments);
             }
             // Обеспечение активности текущего окна
             Window.Current.Activate();

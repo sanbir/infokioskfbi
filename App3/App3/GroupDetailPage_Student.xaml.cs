@@ -22,7 +22,7 @@ namespace App1
     /// Страница, на которой показываются общие сведения об отдельной группе, включая предварительный просмотр элементов
     /// внутри группы.
     /// </summary>
-    public sealed partial class GroupDetailPage : Page
+    public sealed partial class GroupDetailPage_Student : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -45,7 +45,7 @@ namespace App1
         }
 
 
-        public GroupDetailPage()
+        public GroupDetailPage_Student()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
@@ -81,7 +81,7 @@ namespace App1
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
             var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+            this.Frame.Navigate(typeof(ItemDetailPage_Student), itemId);
         }
 
         #region Регистрация NavigationHelper
