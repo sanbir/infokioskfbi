@@ -69,6 +69,7 @@
                                         </TransformGroup>
                                     </Path.RenderTransform>
                                 </Path>
+                                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
                             </Grid>
                         </Border>
                         <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">

@@ -25,5 +25,8 @@
             <GradientStop Color="#FFC0CFF0" Offset="0.993"/>
         </LinearGradientBrush>
 
+
+        <ResourceDictionary x:Key="stdStyles" Source="Common/StandardStyles.xaml"/>
+
     </Application.Resources>
 </Application>

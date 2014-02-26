@@ -103,11 +103,17 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Folder Include="Assets\Photos\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="Common\BooleanNegationConverter.cs" />
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\LayoutAwarePage.cs" />
+    <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="GroupedItemsPage_Student.xaml.cs">
       <DependentUpon>GroupedItemsPage_Student.xaml</DependentUpon>
     </Compile>
@@ -130,6 +136,12 @@
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
     <None Include="App3_TemporaryKey.pfx" />
+    <Content Include="Assets\1.png" />
+    <Content Include="Assets\2.png" />
+    <Content Include="Assets\3.png" />
+    <Content Include="Assets\4.png" />
+    <Content Include="Assets\5.png" />
+    <Content Include="Assets\6.png" />
     <Content Include="DataModel\SampleData.json" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GroupedItemsPage_Student.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
