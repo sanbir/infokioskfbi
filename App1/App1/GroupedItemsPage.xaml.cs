@@ -14,9 +14,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-using Windows.UI.ApplicationSettings;
-using System.Threading.Tasks;
-
 // Шаблон элемента страницы сгруппированных элементов задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234231
 
 namespace App1
@@ -94,13 +91,8 @@ namespace App1
         /// <param name="sender">Объект GridView (или ListView, если приложение прикреплено),
         /// в котором отображается нажатый элемент.</param>
         /// <param name="e">Данные о событии, описывающие нажатый элемент.</param>
-        async void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var selectedAccountType = (SampleDataItem)e.ClickedItem;
-            if (selectedAccountType.Title != "Гость") 
-            {
-                var a = await Task.Run(App.updateUserName(logInStatus, true));
-            }
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
             var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
@@ -132,32 +124,13 @@ namespace App1
 
         private void grdSdow_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            //IsLoggedIn = true;
-            //AnimationClosed.Begin();
+            IsLoggedIn = true;
+            AnimationClosed.Begin();
         }
 
         private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
+
         }
-
-        private void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs e)
-        {
-            SettingsCommand privacyCommand = new SettingsCommand("privacy", "Privacy", (handler) =>
-            {
-                Privacy privacyFlyout = new Privacy();
-                privacyFlyout.Show();
-            });
-            e.Request.ApplicationCommands.Add(privacyCommand);
-
-            SettingsCommand accountCommand = new SettingsCommand("account", "Account", (handler) =>
-            {
-                Account accountFlyout = new Account();
-                accountFlyout.Show();
-            });
-            e.Request.ApplicationCommands.Add(accountCommand);
-        }
-
-
     }
 }
