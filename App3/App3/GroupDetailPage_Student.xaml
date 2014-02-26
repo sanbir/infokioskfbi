@@ -53,18 +53,25 @@
             ItemClick="ItemView_ItemClick">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="110" Width="480" Margin="10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
-                            <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                    <Grid HorizontalAlignment="Left" Width="150" Height="150">
+                        <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                            <Grid>
+                                <Path Fill="White" Data="{Binding ImagePath}" 
+                                              Stretch="Uniform"  
+                                              Width="100" Height="100" 
+                                              Margin="0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
                         </Border>
-                        <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,0,0,0">
-                            <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap"/>
-                            <TextBlock Text="{Binding Subtitle}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
-                            <TextBlock Text="{Binding Description}" Style="{StaticResource BodyTextBlockStyle}" MaxHeight="60"/>
+                        <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                            <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="60" Margin="15,0,15,0"/>
+                            <TextBlock Text="{Binding Subtitle}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
