@@ -108,11 +108,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\BindableBase.cs" />
-    <Compile Include="Common\BooleanNegationConverter.cs" />
-    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Common\LayoutAwarePage.cs" />
-    <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="GroupedItemsPage_Student.xaml.cs">
       <DependentUpon>GroupedItemsPage_Student.xaml</DependentUpon>
     </Compile>
@@ -151,10 +146,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Common\StandardStyles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="GroupedItemsPage_Student.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
