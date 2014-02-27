@@ -97,6 +97,11 @@ namespace App1
                 DefaultLaunch(@"Assets\FBI.xls");
                 return;
             }
+            else if (selectedItem.Title == "Успеваемость")
+            {
+                DefaultLaunch(@"Assets\bi_1_3_13.xls");
+                return;
+            }
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
             var itemId = selectedItem.UniqueId;
