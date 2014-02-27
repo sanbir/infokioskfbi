@@ -91,10 +91,41 @@ namespace App1
         /// <param name="e">Данные о событии, описывающие нажатый элемент.</param>
         void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            var selectedItem = ((SampleDataItem)e.ClickedItem);
+            if (selectedItem.Title == "Расписание") 
+            {
+                DefaultLaunch(@"Assets\FBI.xls");
+                return;
+            }
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            var itemId = selectedItem.UniqueId;
             this.Frame.Navigate(typeof(ItemDetailPage_Student), itemId);
+        }
+
+        async void DefaultLaunch(string filename)
+        {
+            var file = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(filename);
+            if (file != null)
+            {
+                // Set the option to show the picker
+                var options = new Windows.System.LauncherOptions();
+                options.DisplayApplicationPicker = true;
+                // Launch the retrieved file
+                bool success = await Windows.System.Launcher.LaunchFileAsync(file, options);
+                if (success)
+                {
+                    // File launched
+                }
+                else
+                {
+                    // File launch failed
+                }
+            }
+            else
+            {
+                // Could not find file
+            }
         }
 
         #region Регистрация NavigationHelper

@@ -134,6 +134,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\FBI.xls" />
     <None Include="Common\ReadMe.txt" />
     <None Include="App3_TemporaryKey.pfx" />
     <Content Include="Assets\1.png" />
