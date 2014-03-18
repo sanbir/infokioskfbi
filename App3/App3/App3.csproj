@@ -134,6 +134,11 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\Capture1.PNG" />
+    <Content Include="Assets\Capture2.PNG" />
+    <Content Include="Assets\Capture3.PNG" />
+    <Content Include="Assets\Capture4.PNG" />
+    <Content Include="Assets\Capture5.PNG" />
     <Content Include="Assets\FBI.xls" />
     <Content Include="Assets\bi_1_3_13.xls" />
     <None Include="Common\ReadMe.txt" />

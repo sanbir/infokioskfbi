@@ -3,31 +3,31 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Windows.UI.Xaml.Data;
 
-namespace MyUniversity.Common
+namespace App1.Common
 {
     /// <summary>
-    /// Реализация интерфейса <see cref="INotifyPropertyChanged"/> для упрощения моделей.
+    /// Implementation of <see cref="INotifyPropertyChanged"/> to simplify models.
     /// </summary>
     [Windows.Foundation.Metadata.WebHostHidden]
     public abstract class BindableBase : INotifyPropertyChanged
     {
         /// <summary>
-        /// Многоадресное событие для уведомлений об изменении свойств.
+        /// Multicast event for property change notifications.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// Проверяет, не равно ли уже свойство требуемому значению. Задает свойство и
-        /// уведомляет прослушиватели только при необходимости.
+        /// Checks if a property already matches a desired value.  Sets the property and
+        /// notifies listeners only when necessary.
         /// </summary>
-        /// <typeparam name="T">Тип свойства.</typeparam>
-        /// <param name="storage">Ссылка на свойство, имеющее методы задания и получения.</param>
-        /// <param name="value">Требуемое значение свойства.</param>
-        /// <param name="propertyName">Имя свойства, используемого для уведомления прослушивателей. Это
-        /// значение является необязательным, оно может предоставляться автоматически при вызове из компилятора, который
-        /// поддерживает атрибут CallerMemberName.</param>
-        /// <returns>Значение true при изменении значения, значение false, если существующее значение совпадает с
-        /// требуемым значением.</returns>
+        /// <typeparam name="T">Type of the property.</typeparam>
+        /// <param name="storage">Reference to a property with both getter and setter.</param>
+        /// <param name="value">Desired value for the property.</param>
+        /// <param name="propertyName">Name of the property used to notify listeners.  This
+        /// value is optional and can be provided automatically when invoked from compilers that
+        /// support CallerMemberName.</param>
+        /// <returns>True if the value was changed, false if the existing value matched the
+        /// desired value.</returns>
         protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
         {
             if (object.Equals(storage, value)) return false;
@@ -38,11 +38,11 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Уведомляет прослушиватели об изменении значения свойства.
+        /// Notifies listeners that a property value has changed.
         /// </summary>
-        /// <param name="propertyName">Имя свойства, используемого для уведомления прослушивателей. Это
-        /// значение является необязательным, оно может предоставляться автоматически при вызове из компилятора,
-        /// который поддерживает атрибут <see cref="CallerMemberNameAttribute"/>.</param>
+        /// <param name="propertyName">Name of the property used to notify listeners.  This
+        /// value is optional and can be provided automatically when invoked from compilers
+        /// that support <see cref="CallerMemberNameAttribute"/>.</param>
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             var eventHandler = this.PropertyChanged;

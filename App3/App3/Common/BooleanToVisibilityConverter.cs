@@ -11,11 +11,11 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 
-namespace MyUniversity.Common
+namespace App1.Common
 {
     /// <summary>
-    /// Конвертер значений, который преобразует значение true в значение <see cref="Visibility.Visible"/> и значение false в
-    /// значение <see cref="Visibility.Collapsed"/>.
+    /// Value converter that translates true to <see cref="Visibility.Visible"/> and false to
+    /// <see cref="Visibility.Collapsed"/>.
     /// </summary>
     public sealed class BooleanToVisibilityConverter : IValueConverter
     {

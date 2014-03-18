@@ -1,5 +1,4 @@
-﻿using App1.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,25 +11,25 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace MyUniversity.Common
+namespace App1.Common
 {
     /// <summary>
-    /// Обычная реализация объекта Page, предоставляющая несколько важных и удобных возможностей:
+    /// Typical implementation of Page that provides several important conveniences:
     /// <list type="bullet">
     /// <item>
-    /// <description>Сопоставление состояния просмотра приложения с визуальным состоянием</description>
+    /// <description>Application view state to visual state mapping</description>
     /// </item>
     /// <item>
-    /// <description>Обработчики событий GoBack, GoForward и GoHome</description>
+    /// <description>GoBack, GoForward, and GoHome event handlers</description>
     /// </item>
     /// <item>
-    /// <description>Сочетания клавиш и щелчки мышью для навигации</description>
+    /// <description>Mouse and keyboard shortcuts for navigation</description>
     /// </item>
     /// <item>
-    /// <description>Управление состоянием для навигации и управления жизненным циклом процессов</description>
+    /// <description>State management for navigation and process lifetime management</description>
     /// </item>
     /// <item>
-    /// <description>Модель представления по умолчанию</description>
+    /// <description>A default view model</description>
     /// </item>
     /// </list>
     /// </summary>
@@ -38,7 +37,7 @@ namespace MyUniversity.Common
     public class LayoutAwarePage : Page
     {
         /// <summary>
-        /// Определяет свойство зависимостей <see cref="DefaultViewModel"/>.
+        /// Identifies the <see cref="DefaultViewModel"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty DefaultViewModelProperty =
             DependencyProperty.Register("DefaultViewModel", typeof(IObservableMap<String, Object>),
@@ -47,27 +46,27 @@ namespace MyUniversity.Common
         private List<Control> _layoutAwareControls;
 
         /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="LayoutAwarePage"/>.
+        /// Initializes a new instance of the <see cref="LayoutAwarePage"/> class.
         /// </summary>
         public LayoutAwarePage()
         {
             if (Windows.ApplicationModel.DesignMode.DesignModeEnabled) return;
 
-            // Создание пустой модели представления по умолчанию
+            // Create an empty default view model
             this.DefaultViewModel = new ObservableDictionary<String, Object>();
 
-            // Если данная страница является частью визуального дерева, возникают два изменения:
-            // 1) Сопоставление состояния просмотра приложения с визуальным состоянием для страницы.
-            // 2) Обработка запросов навигации с помощью мыши и клавиатуры.
+            // When this page is part of the visual tree make two changes:
+            // 1) Map application view state to visual state for the page
+            // 2) Handle keyboard and mouse navigation requests
             this.Loaded += (sender, e) =>
             {
                 this.StartLayoutUpdates(sender, e);
 
-                // Навигация с помощью мыши и клавиатуры применяется, только если страница занимает все окно
+                // Keyboard and mouse navigation only apply when occupying the entire window
                 if (this.ActualHeight == Window.Current.Bounds.Height &&
                     this.ActualWidth == Window.Current.Bounds.Width)
                 {
-                    // Непосредственное прослушивание окна, поэтому фокус не требуется
+                    // Listen to the window directly so focus isn't required
                     Window.Current.CoreWindow.Dispatcher.AcceleratorKeyActivated +=
                         CoreDispatcher_AcceleratorKeyActivated;
                     Window.Current.CoreWindow.PointerPressed +=
@@ -75,7 +74,7 @@ namespace MyUniversity.Common
                 }
             };
 
-            // Отмена тех же изменений, когда страница перестает быть видимой
+            // Undo the same changes when the page is no longer visible
             this.Unloaded += (sender, e) =>
             {
                 this.StopLayoutUpdates(sender, e);
@@ -87,8 +86,8 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Реализация интерфейса <see cref="IObservableMap&lt;String, Object&gt;"/>, предназначенного для
-        /// использования в качестве тривиальной модели представления.
+        /// An implementation of <see cref="IObservableMap&lt;String, Object&gt;"/> designed to be
+        /// used as a trivial view model.
         /// </summary>
         protected IObservableMap<String, Object> DefaultViewModel
         {
@@ -103,17 +102,17 @@ namespace MyUniversity.Common
             }
         }
 
-        #region Поддержка навигации
+        #region Navigation support
 
         /// <summary>
-        /// Вызывается как обработчик событий для перехода назад в связанном со страницей фрейме
-        /// <see cref="Frame"/> до достижения верхнего элемента стека навигации.
+        /// Invoked as an event handler to navigate backward in the page's associated
+        /// <see cref="Frame"/> until it reaches the top of the navigation stack.
         /// </summary>
-        /// <param name="sender">Экземпляр, инициировавший событие.</param>
-        /// <param name="e">Данные события, описывающие условия, которые привели к возникновению события.</param>
+        /// <param name="sender">Instance that triggered the event.</param>
+        /// <param name="e">Event data describing the conditions that led to the event.</param>
         protected virtual void GoHome(object sender, RoutedEventArgs e)
         {
-            // Используйте фрейм навигации для возврата на самую верхнюю страницу
+            // Use the navigation frame to return to the topmost page
             if (this.Frame != null)
             {
                 while (this.Frame.CanGoBack) this.Frame.GoBack();
@@ -121,45 +120,45 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Вызывается как обработчик событий для перехода назад в стеке навигации,
-        /// связанном со фреймом <see cref="Frame"/> данной страницы.
+        /// Invoked as an event handler to navigate backward in the navigation stack
+        /// associated with this page's <see cref="Frame"/>.
         /// </summary>
-        /// <param name="sender">Экземпляр, инициировавший событие.</param>
-        /// <param name="e">Данные события, описывающие условия, которые привели к
-        /// возникновению события.</param>
+        /// <param name="sender">Instance that triggered the event.</param>
+        /// <param name="e">Event data describing the conditions that led to the
+        /// event.</param>
         protected virtual void GoBack(object sender, RoutedEventArgs e)
         {
-            // Используйте фрейм навигации для возврата на предыдущую страницу
+            // Use the navigation frame to return to the previous page
             if (this.Frame != null && this.Frame.CanGoBack) this.Frame.GoBack();
         }
 
         /// <summary>
-        /// Вызывается как обработчик событий для перехода вперед в стеке навигации
-        /// связанном со фреймом <see cref="Frame"/> данной страницы.
+        /// Invoked as an event handler to navigate forward in the navigation stack
+        /// associated with this page's <see cref="Frame"/>.
         /// </summary>
-        /// <param name="sender">Экземпляр, инициировавший событие.</param>
-        /// <param name="e">Данные события, описывающие условия, которые привели к
-        /// возникновению события.</param>
+        /// <param name="sender">Instance that triggered the event.</param>
+        /// <param name="e">Event data describing the conditions that led to the
+        /// event.</param>
         protected virtual void GoForward(object sender, RoutedEventArgs e)
         {
-            // Используйте фрейм навигации для перехода на следующую страницу
+            // Use the navigation frame to move to the next page
             if (this.Frame != null && this.Frame.CanGoForward) this.Frame.GoForward();
         }
 
         /// <summary>
-        /// Вызывается при каждом нажатии клавиши, включая системные клавиши, такие как клавиша ALT, если
-        /// данная страница активна и занимает все окно. Используется для обнаружения навигации с помощью клавиатуры
-        /// между страницами, даже если сама страница не имеет фокуса.
+        /// Invoked on every keystroke, including system keys such as Alt key combinations, when
+        /// this page is active and occupies the entire window.  Used to detect keyboard navigation
+        /// between pages even when the page itself doesn't have focus.
         /// </summary>
-        /// <param name="sender">Экземпляр, инициировавший событие.</param>
-        /// <param name="args">Данные события, описывающие условия, которые привели к возникновению события.</param>
+        /// <param name="sender">Instance that triggered the event.</param>
+        /// <param name="args">Event data describing the conditions that led to the event.</param>
         private void CoreDispatcher_AcceleratorKeyActivated(CoreDispatcher sender,
             AcceleratorKeyEventArgs args)
         {
             var virtualKey = args.VirtualKey;
 
-            // Дальнейшее изучение следует выполнять, только если нажата клавиша со стрелкой влево или вправо либо назначенная клавиша "Назад" или
-            // "Вперед"
+            // Only investigate further when Left, Right, or the dedicated Previous or Next keys
+            // are pressed
             if ((args.EventType == CoreAcceleratorKeyEventType.SystemKeyDown ||
                 args.EventType == CoreAcceleratorKeyEventType.KeyDown) &&
                 (virtualKey == VirtualKey.Left || virtualKey == VirtualKey.Right ||
@@ -176,14 +175,14 @@ namespace MyUniversity.Common
                 if (((int)virtualKey == 166 && noModifiers) ||
                     (virtualKey == VirtualKey.Left && onlyAlt))
                 {
-                    // Переход назад при нажатии клавиши "Назад" или сочетания клавиш ALT+стрелка влево
+                    // When the previous key or Alt+Left are pressed navigate back
                     args.Handled = true;
                     this.GoBack(this, new RoutedEventArgs());
                 }
                 else if (((int)virtualKey == 167 && noModifiers) ||
                     (virtualKey == VirtualKey.Right && onlyAlt))
                 {
-                    // Переход вперед при нажатии клавиши "Вперед" или сочетания клавиш ALT+стрелка вправо
+                    // When the next key or Alt+Right are pressed navigate forward
                     args.Handled = true;
                     this.GoForward(this, new RoutedEventArgs());
                 }
@@ -191,22 +190,22 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Вызывается при каждом щелчке мыши, касании сенсорного экрана или аналогичном действии, если эта
-        /// страница активна и занимает все окно. Используется для обнаружения нажатий мышью кнопок "Вперед" и
-        /// "Назад" в браузере для перехода между страницами.
+        /// Invoked on every mouse click, touch screen tap, or equivalent interaction when this
+        /// page is active and occupies the entire window.  Used to detect browser-style next and
+        /// previous mouse button clicks to navigate between pages.
         /// </summary>
-        /// <param name="sender">Экземпляр, инициировавший событие.</param>
-        /// <param name="args">Данные события, описывающие условия, которые привели к возникновению события.</param>
+        /// <param name="sender">Instance that triggered the event.</param>
+        /// <param name="args">Event data describing the conditions that led to the event.</param>
         private void CoreWindow_PointerPressed(CoreWindow sender,
             PointerEventArgs args)
         {
             var properties = args.CurrentPoint.Properties;
 
-            // Пропуск сочетаний кнопок, включающих левую, правую и среднюю кнопки
+            // Ignore button chords with the left, right, and middle buttons
             if (properties.IsLeftButtonPressed || properties.IsRightButtonPressed ||
                 properties.IsMiddleButtonPressed) return;
 
-            // Если нажата кнопка "Назад" или "Вперед" (но не обе), выполняется соответствующий переход
+            // If back or foward are pressed (but not both) navigate appropriately
             bool backPressed = properties.IsXButton1Pressed;
             bool forwardPressed = properties.IsXButton2Pressed;
             if (backPressed ^ forwardPressed)
@@ -219,23 +218,23 @@ namespace MyUniversity.Common
 
         #endregion
 
-        #region Переключение визуальных состояний
+        #region Visual state switching
 
         /// <summary>
-        /// Вызывается в качестве обработчика событий, как правило, для события <see cref="FrameworkElement.Loaded"/>
-        /// элемента управления <see cref="Control"/> на странице для указания того, что отправитель должен
-        /// начать получать изменения управления визуальным состоянием, соответствующие изменениям состояния просмотра
-        /// приложения.
+        /// Invoked as an event handler, typically on the <see cref="FrameworkElement.Loaded"/>
+        /// event of a <see cref="Control"/> within the page, to indicate that the sender should
+        /// start receiving visual state management changes that correspond to application view
+        /// state changes.
         /// </summary>
-        /// <param name="sender">Экземпляр <see cref="Control"/>, который поддерживает управление состоянием просмотра,
-        /// соответствующее состояниям просмотра.</param>
-        /// <param name="e">Данные события, описывающие способ выполнения запроса.</param>
-        /// <remarks>Текущее состояние просмотра будет немедленно использоваться для задания соответствующего
-        /// визуального состояния при запросе обновлений макета. Настоятельно рекомендуется
-        /// использовать обработчик событий <see cref="FrameworkElement.Unloaded"/>, подключенный к
-        /// объекту <see cref="StopLayoutUpdates"/>. Экземпляры
-        /// <see cref="LayoutAwarePage"/> автоматически вызывают эти обработчики в своих событиях Loaded и
-        /// Unloaded.</remarks>
+        /// <param name="sender">Instance of <see cref="Control"/> that supports visual state
+        /// management corresponding to view states.</param>
+        /// <param name="e">Event data that describes how the request was made.</param>
+        /// <remarks>The current view state will immediately be used to set the corresponding
+        /// visual state when layout updates are requested.  A corresponding
+        /// <see cref="FrameworkElement.Unloaded"/> event handler connected to
+        /// <see cref="StopLayoutUpdates"/> is strongly encouraged.  Instances of
+        /// <see cref="LayoutAwarePage"/> automatically invoke these handlers in their Loaded and
+        /// Unloaded events.</remarks>
         /// <seealso cref="DetermineVisualState"/>
         /// <seealso cref="InvalidateVisualState"/>
         public void StartLayoutUpdates(object sender, RoutedEventArgs e)
@@ -244,13 +243,13 @@ namespace MyUniversity.Common
             if (control == null) return;
             if (this._layoutAwareControls == null)
             {
-                // Запуск прослушивания изменений состояния просмотра при наличии элементов управления, заинтересованных в обновлениях
+                // Start listening to view state changes when there are controls interested in updates
                 Window.Current.SizeChanged += this.WindowSizeChanged;
                 this._layoutAwareControls = new List<Control>();
             }
             this._layoutAwareControls.Add(control);
 
-            // Задает начальное визуальное состояние элемента управления
+            // Set the initial visual state of the control
             VisualStateManager.GoToState(control, DetermineVisualState(ApplicationView.Value), false);
         }
 
@@ -260,15 +259,15 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Вызывается в качестве обработчика событий, как правило, для события <see cref="FrameworkElement.Unloaded"/>
-        /// элемента управления <see cref="Control"/> для указания того, что отправитель должен начать получать
-        /// изменения управления визуальным состоянием, соответствующие изменениям состояния просмотра приложения.
+        /// Invoked as an event handler, typically on the <see cref="FrameworkElement.Unloaded"/>
+        /// event of a <see cref="Control"/>, to indicate that the sender should start receiving
+        /// visual state management changes that correspond to application view state changes.
         /// </summary>
-        /// <param name="sender">Экземпляр <see cref="Control"/>, который поддерживает управление состоянием просмотра,
-        /// соответствующее состояниям просмотра.</param>
-        /// <param name="e">Данные события, описывающие способ выполнения запроса.</param>
-        /// <remarks>Текущее состояние просмотра будет немедленно использоваться для задания соответствующего
-        /// визуальное состояние при запросе обновлений макета.</remarks>
+        /// <param name="sender">Instance of <see cref="Control"/> that supports visual state
+        /// management corresponding to view states.</param>
+        /// <param name="e">Event data that describes how the request was made.</param>
+        /// <remarks>The current view state will immediately be used to set the corresponding
+        /// visual state when layout updates are requested.</remarks>
         /// <seealso cref="StartLayoutUpdates"/>
         public void StopLayoutUpdates(object sender, RoutedEventArgs e)
         {
@@ -277,19 +276,19 @@ namespace MyUniversity.Common
             this._layoutAwareControls.Remove(control);
             if (this._layoutAwareControls.Count == 0)
             {
-                // Остановка прослушивания изменений состояния просмотра при отсутствии элементов управления, заинтересованных в обновлениях
+                // Stop listening to view state changes when no controls are interested in updates
                 this._layoutAwareControls = null;
                 Window.Current.SizeChanged -= this.WindowSizeChanged;
             }
         }
 
         /// <summary>
-        /// Преобразует значения <see cref="ApplicationViewState"/> в строки для управления визуальным состоянием
-        /// на странице. Реализация по умолчанию использует имена значений перечисления.
-        /// Этот метод может переопределяться подклассами для управления используемой схемой сопоставления.
+        /// Translates <see cref="ApplicationViewState"/> values into strings for visual state
+        /// management within the page.  The default implementation uses the names of enum values.
+        /// Subclasses may override this method to control the mapping scheme used.
         /// </summary>
-        /// <param name="viewState">Состояние просмотра, для которого требуется визуальное состояние.</param>
-        /// <returns>Имя визуального состояния, используемое для инициирования
+        /// <param name="viewState">View state for which a visual state is desired.</param>
+        /// <returns>Visual state name used to drive the
         /// <see cref="VisualStateManager"/></returns>
         /// <seealso cref="InvalidateVisualState"/>
         protected virtual string DetermineVisualState(ApplicationViewState viewState)
@@ -298,13 +297,13 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Обновляет все элементы управления, прослушивающие изменения визуального состояния, соответствующим
-        /// визуальным состоянием.
+        /// Updates all controls that are listening for visual state changes with the correct
+        /// visual state.
         /// </summary>
         /// <remarks>
-        /// Обычно используется вместе с переопределяющим <see cref="DetermineVisualState"/> для
-        /// указания на возможность возвращения другого значения даже при отсутствии изменений состояния
-        /// просмотра.
+        /// Typically used in conjunction with overriding <see cref="DetermineVisualState"/> to
+        /// signal that a different value may be returned even though the view state has not
+        /// changed.
         /// </remarks>
         public void InvalidateVisualState()
         {
@@ -320,18 +319,18 @@ namespace MyUniversity.Common
 
         #endregion
 
-        #region Управление жизненным циклом процесса
+        #region Process lifetime management
 
         private String _pageKey;
 
         /// <summary>
-        /// Вызывается перед отображением этой страницы во фрейме.
+        /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
-        /// <param name="e">Данные о событиях, описывающие, каким образом была достигнута эта страница.  Свойство Parameter
-        /// задает группу для отображения.</param>
+        /// <param name="e">Event data that describes how this page was reached.  The Parameter
+        /// property provides the group to be displayed.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // Возвращение к кэшированной странице во время навигации не должно инициировать загрузку состояния
+            // Returning to a cached page through navigation shouldn't trigger state loading
             if (this._pageKey != null) return;
 
             var frameState = SuspensionManager.SessionStateForFrame(this.Frame);
@@ -339,8 +338,8 @@ namespace MyUniversity.Common
 
             if (e.NavigationMode == NavigationMode.New)
             {
-                // Очистка существующего состояния для перехода вперед при добавлении новой страницы в
-                // стек навигации
+                // Clear existing state for forward navigation when adding a new page to the
+                // navigation stack
                 var nextPageKey = this._pageKey;
                 int nextPageIndex = this.Frame.BackStackDepth;
                 while (frameState.Remove(nextPageKey))
@@ -349,23 +348,23 @@ namespace MyUniversity.Common
                     nextPageKey = "Page-" + nextPageIndex;
                 }
 
-                // Передача параметра навигации на новую страницу
+                // Pass the navigation parameter to the new page
                 this.LoadState(e.Parameter, null);
             }
             else
             {
-                // Передача на страницу параметра навигации и сохраненного состояния страницы с использованием
-                // той же стратегии загрузки приостановленного состояния и повторного создания страниц, удаленных
-                // из кэша
+                // Pass the navigation parameter and preserved page state to the page, using
+                // the same strategy for loading suspended state and recreating pages discarded
+                // from cache
                 this.LoadState(e.Parameter, (Dictionary<String, Object>)frameState[this._pageKey]);
             }
         }
 
         /// <summary>
-        /// Вызывается, если данная страница больше не отображается во фрейме.
+        /// Invoked when this page will no longer be displayed in a Frame.
         /// </summary>
-        /// <param name="e">Данные о событиях, описывающие, каким образом была достигнута эта страница.  Свойство Parameter
-        /// задает группу для отображения.</param>
+        /// <param name="e">Event data that describes how this page was reached.  The Parameter
+        /// property provides the group to be displayed.</param>
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             var frameState = SuspensionManager.SessionStateForFrame(this.Frame);
@@ -375,24 +374,24 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Заполняет страницу содержимым, передаваемым в процессе навигации. Также предоставляется любое сохраненное состояние
-        /// при повторном создании страницы из предыдущего сеанса.
+        /// Populates the page with content passed during navigation.  Any saved state is also
+        /// provided when recreating a page from a prior session.
         /// </summary>
-        /// <param name="navigationParameter">Значение параметра, передаваемое
-        /// <see cref="Frame.Navigate(Type, Object)"/> при первоначальном запросе этой страницы.
+        /// <param name="navigationParameter">The parameter value passed to
+        /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested.
         /// </param>
-        /// <param name="pageState">Словарь состояния, сохраненного данной страницей в ходе предыдущего
-        /// сеанса. Это значение будет равно NULL при первом посещении страницы.</param>
+        /// <param name="pageState">A dictionary of state preserved by this page during an earlier
+        /// session.  This will be null the first time a page is visited.</param>
         protected virtual void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
         }
 
         /// <summary>
-        /// Сохраняет состояние, связанное с данной страницей, в случае приостановки приложения или
-        /// удаления страницы из кэша навигации. Значения должны соответствовать требованиям сериализации
-        /// <see cref="SuspensionManager.SessionState"/>.
+        /// Preserves state associated with this page in case the application is suspended or the
+        /// page is discarded from the navigation cache.  Values must conform to the serialization
+        /// requirements of <see cref="SuspensionManager.SessionState"/>.
         /// </summary>
-        /// <param name="pageState">Пустой словарь, заполняемый сериализуемым состоянием.</param>
+        /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected virtual void SaveState(Dictionary<String, Object> pageState)
         {
         }
@@ -400,8 +399,8 @@ namespace MyUniversity.Common
         #endregion
 
         /// <summary>
-        /// Реализация интерфейса IObservableMap, поддерживающего повторный вход для использования в качестве модели представления
-        /// по умолчанию.
+        /// Implementation of IObservableMap that supports reentrancy for use as a default view
+        /// model.
         /// </summary>
         private class ObservableDictionary<K, V> : IObservableMap<K, V>
         {
@@ -425,7 +424,7 @@ namespace MyUniversity.Common
                 var eventHandler = MapChanged;
                 if (eventHandler != null)
                 {
-                    eventHandler(this, new ObservableDictionaryChangedEventArgs(change, key));
+                    eventHandler(this, new ObservableDictionaryChangedEventArgs(CollectionChange.ItemInserted, key));
                 }
             }
 

@@ -8,15 +8,15 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Documents;
 
-namespace MyUniversity.Common
+namespace App1.Common
 {
     /// <summary>
-    /// Оболочка <see cref="RichTextBlock"/>, создающая столько дополнительных столбцов
-    /// переполнения, сколько их нужно для размещения доступного содержимого.
+    /// Wrapper for <see cref="RichTextBlock"/> that creates as many additional overflow
+    /// columns as needed to fit the available content.
     /// </summary>
     /// <example>
-    /// В следующем коде создается коллекция столбцов шириной 400 пикселей, расположенных на расстоянии 50 пикселей друг от друга,
-    /// для размещения произвольного содержимого, привязанного к данным:
+    /// The following creates a collection of 400-pixel wide columns spaced 50 pixels apart
+    /// to contain arbitrary data-bound content:
     /// <code>
     /// <RichTextColumns>
     ///     <RichTextColumns.ColumnTemplate>
@@ -33,28 +33,28 @@ namespace MyUniversity.Common
     /// </RichTextColumns>
     /// </code>
     /// </example>
-    /// <remarks>Обычно используется для области с горизонтальной прокруткой, в котором содержится неограниченное
-    /// пространство для создания всех необходимых столбцов. При использовании в области
-    /// с вертикальной прокруткой, дополнительные столбцы не создаются.</remarks>
+    /// <remarks>Typically used in a horizontally scrolling region where an unbounded amount of
+    /// space allows for all needed columns to be created.  When used in a vertically scrolling
+    /// space there will never be any additional columns.</remarks>
     [Windows.UI.Xaml.Markup.ContentProperty(Name = "RichTextContent")]
     public sealed class RichTextColumns : Panel
     {
         /// <summary>
-        /// Определяет свойство зависимостей <see cref="RichTextContent"/>.
+        /// Identifies the <see cref="RichTextContent"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty RichTextContentProperty =
             DependencyProperty.Register("RichTextContent", typeof(RichTextBlock),
             typeof(RichTextColumns), new PropertyMetadata(null, ResetOverflowLayout));
 
         /// <summary>
-        /// Определяет свойство зависимостей <see cref="ColumnTemplate"/>.
+        /// Identifies the <see cref="ColumnTemplate"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty ColumnTemplateProperty =
             DependencyProperty.Register("ColumnTemplate", typeof(DataTemplate),
             typeof(RichTextColumns), new PropertyMetadata(null, ResetOverflowLayout));
 
         /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="RichTextColumns"/>.
+        /// Initializes a new instance of the <see cref="RichTextColumns"/> class.
         /// </summary>
         public RichTextColumns()
         {
@@ -62,7 +62,7 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Получает или задает исходное форматированное текстовое содержимое, используемое в качестве первого столбца.
+        /// Gets or sets the initial rich text content to be used as the first column.
         /// </summary>
         public RichTextBlock RichTextContent
         {
@@ -71,8 +71,8 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Получает или задает шаблон, используемый для создания дополнительных
-        /// экземпляров <see cref="RichTextBlockOverflow"/>.
+        /// Gets or sets the template used to create additional
+        /// <see cref="RichTextBlockOverflow"/> instances.
         /// </summary>
         public DataTemplate ColumnTemplate
         {
@@ -81,14 +81,14 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Вызывается при изменении содержимого или шаблона переполнения для повторного создания макета столбцов.
+        /// Invoked when the content or overflow template is changed to recreate the column layout.
         /// </summary>
-        /// <param name="d">Экземпляр <see cref="RichTextColumns"/>, в котором произошло
-        /// изменение.</param>
-        /// <param name="e">Данные события, описывающие конкретное изменение.</param>
+        /// <param name="d">Instance of <see cref="RichTextColumns"/> where the change
+        /// occurred.</param>
+        /// <param name="e">Event data describing the specific change.</param>
         private static void ResetOverflowLayout(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            // Перестроение макета столбцов с нуля в случае серьезных изменений
+            // When dramatic changes occur, rebuild the column layout from scratch
             var target = d as RichTextColumns;
             if (target != null)
             {
@@ -99,44 +99,44 @@ namespace MyUniversity.Common
         }
 
         /// <summary>
-        /// Перечисляет уже созданных столбцов переполнения. Должен обеспечивать отношение 1:1 с
-        /// экземплярами в коллекции <see cref="Panel.Children"/>, следующими за исходным
-        /// дочерним элементом RichTextBlock.
+        /// Lists overflow columns already created.  Must maintain a 1:1 relationship with
+        /// instances in the <see cref="Panel.Children"/> collection following the initial
+        /// RichTextBlock child.
         /// </summary>
         private List<RichTextBlockOverflow> _overflowColumns = null;
 
         /// <summary>
-        /// Определяет, нужны ли дополнительные столбцы переполнения и можно ли удалить
-        /// существующие столбцы.
+        /// Determines whether additional overflow columns are needed and if existing columns can
+        /// be removed.
         /// </summary>
-        /// <param name="availableSize">Размер доступного пространства, используемый для ограничения
-        /// числа дополнительных столбцов, которые можно создать.</param>
-        /// <returns>Результирующий размер исходного содержимого плюс все дополнительные столбцы.</returns>
+        /// <param name="availableSize">The size of the space available, used to constrain the
+        /// number of additional columns that can be created.</param>
+        /// <returns>The resulting size of the original content plus any extra columns.</returns>
         protected override Size MeasureOverride(Size availableSize)
         {
             if (this.RichTextContent == null) return new Size(0, 0);
 
-            // Убедитесь, что RichTextBlock является дочерним элементом; отсутствие
-            // списка дополнительных столбцов означает, что он еще не сделан
-            // дочерним
+            // Make sure the RichTextBlock is a child, using the lack of
+            // a list of additional columns as a sign that this hasn't been
+            // done yet
             if (this._overflowColumns == null)
             {
                 Children.Add(this.RichTextContent);
                 this._overflowColumns = new List<RichTextBlockOverflow>();
             }
 
-            // Начните с измерения исходного содержимого RichTextBlock
+            // Start by measuring the original RichTextBlock content
             this.RichTextContent.Measure(availableSize);
             var maxWidth = this.RichTextContent.DesiredSize.Width;
             var maxHeight = this.RichTextContent.DesiredSize.Height;
             var hasOverflow = this.RichTextContent.HasOverflowContent;
 
-            // Убедитесь в наличии достаточного количества столбцов переполнения
+            // Make sure there are enough overflow columns
             int overflowIndex = 0;
             while (hasOverflow && maxWidth < availableSize.Width && this.ColumnTemplate != null)
             {
-                // Используйте существующие столбцы переполнения, пока они не закончатся, затем создайте
-                // дополнительные столбцы из предоставленного шаблона
+                // Use existing overflow columns until we run out, then create
+                // more from the supplied template
                 RichTextBlockOverflow overflow;
                 if (this._overflowColumns.Count > overflowIndex)
                 {
@@ -157,7 +157,7 @@ namespace MyUniversity.Common
                     }
                 }
 
-                // Измерение нового столбца и подготовка к повторению в случае необходимости
+                // Measure the new column and prepare to repeat as necessary
                 overflow.Measure(new Size(availableSize.Width - maxWidth, availableSize.Height));
                 maxWidth += overflow.DesiredSize.Width;
                 maxHeight = Math.Max(maxHeight, overflow.DesiredSize.Height);
@@ -165,8 +165,8 @@ namespace MyUniversity.Common
                 overflowIndex++;
             }
 
-            // Отключение дополнительных столбцов от цепи переполнения, удаление их из нашего закрытого списка
-            // столбцов и удаление их как дочерних элементов
+            // Disconnect extra columns from the overflow chain, remove them from our private list
+            // of columns, and remove them as children
             if (this._overflowColumns.Count > overflowIndex)
             {
                 if (overflowIndex == 0)
@@ -184,16 +184,16 @@ namespace MyUniversity.Common
                 }
             }
 
-            // Сообщение о конечном определенном размере
+            // Report final determined size
             return new Size(maxWidth, maxHeight);
         }
 
         /// <summary>
-        /// Упорядочение исходного содержимого и всех дополнительных столбцов.
+        /// Arranges the original content and all extra columns.
         /// </summary>
-        /// <param name="finalSize">Определение размера области, в которой должны быть упорядочены дочерние
-        /// элементы.</param>
-        /// <returns>Размер области, которая фактически требуется дочерним элементам.</returns>
+        /// <param name="finalSize">Defines the size of the area the children must be arranged
+        /// within.</param>
+        /// <returns>The size of the area the children actually required.</returns>
         protected override Size ArrangeOverride(Size finalSize)
         {
             double maxWidth = 0;
