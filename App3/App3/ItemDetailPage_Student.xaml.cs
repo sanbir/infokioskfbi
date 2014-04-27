@@ -21,7 +21,7 @@ namespace App1
     /// <summary>
     /// Страница, на которой отображаются сведения об отдельном элементе внутри группы.
     /// </summary>
-    public sealed partial class ItemDetailPage_Student : Page
+    public sealed partial class ItemDetailPage_Student : LayoutAwarePage
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -38,10 +38,10 @@ namespace App1
         /// <summary>
         /// Эту настройку можно изменить на модель строго типизированных представлений.
         /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
+        //public ObservableDictionary DefaultViewModel
+        //{
+        //    get { return this.defaultViewModel; }
+        //}
 
         public ItemDetailPage_Student()
         {

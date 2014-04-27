@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="54677AppsFusion.5011546B513CC" Publisher="CN=07F3268D-FB1F-4116-AC8F-00A17AC68A67" Version="1.0.0.0" />
+  <Identity Name="54677AppsFusion.5011546B513CC" Publisher="CN=Alex" Version="1.0.0.0" />
   <Properties>
     <DisplayName>СЗИП</DisplayName>
     <PublisherDisplayName>AppsFusion</PublisherDisplayName>
@@ -16,7 +16,7 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="MyUniversity.App">
       <VisualElements DisplayName="СЗИП" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Приложение для просмотра интересующей информации о структуре, организации и данных о Северо-Западном Институте Печати Санкт-Петербургского Государственного Университета Технологии и Дизайна" ForegroundText="light" BackgroundColor="#110078">
-        <DefaultTile ShowName="allLogos" />
+        <DefaultTile ShowName="logoOnly" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#110078" />
       </VisualElements>
     </Application>

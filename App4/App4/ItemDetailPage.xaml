@@ -33,7 +33,23 @@
             TODO: Содержимое должно размещается в следующей сетке
                   для отображения сведений для текущего элемента
         -->
-        <Grid Grid.Row="1" x:Name="contentRegion"/>
+        <Grid Grid.Row="1" x:Name="contentRegion">
+
+            <FlipView
+            x:Name="flipView"
+            AutomationProperties.AutomationId="ItemsFlipView"
+            AutomationProperties.Name="Item Details"
+            TabIndex="1"
+            Grid.RowSpan="2" >
+           
+                <FlipView.ItemContainerStyle>
+                    <Style TargetType="FlipViewItem">
+                        <Setter Property="Margin" Value="0,137,0,0"/>
+                    </Style>
+                </FlipView.ItemContainerStyle>
+
+            </FlipView>
+        </Grid>
 
         <!-- Кнопка "Назад" и заголовок страницы -->
         <Grid>

@@ -12,9 +12,9 @@
     <DefaultLanguage>ru-RU</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>MyUniversity_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>MyUniversity_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-    <PackageCertificateThumbprint>44D37B43113FC43968FDC331181911F824B373E1</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>3E21819B579EE5F105D7F934FD9AF0BBF875692D</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -138,7 +138,6 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
-    <None Include="MyUniversity_StoreKey.pfx" />
     <None Include="MyUniversity_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -181,7 +180,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\UPGRD\Zav.jpg" />
-    <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
