@@ -1,5 +1,5 @@
-﻿using App1.Common;
-using App1.Data;
+﻿using App17.Common;
+using App17.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,14 +14,14 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// Шаблон элемента страницы сведений об элементе задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234232
+// Шаблон элемента страницы сгруппированных элементов задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234231
 
-namespace App1
+namespace App17
 {
     /// <summary>
-    /// Страница, на которой отображаются сведения об отдельном элементе внутри группы.
+    /// Страница, на которой отображается сгруппированная коллекция элементов.
     /// </summary>
-    public sealed partial class ItemDetailPage_Student : Page
+    public sealed partial class GroupedItemsPage : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -43,7 +43,7 @@ namespace App1
             get { return this.defaultViewModel; }
         }
 
-        public ItemDetailPage_Student()
+        public GroupedItemsPage()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
@@ -64,26 +64,42 @@ namespace App1
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             // TODO: Создание соответствующей модели данных для области проблемы, чтобы заменить пример данных
-            //var item = await SampleDataSource.GetItemAsync((String)e.NavigationParameter);
-            //this.DefaultViewModel["Item"] = item;
+            var sampleDataGroups = await SampleDataSource.GetGroupsAsync();
+            this.DefaultViewModel["Groups"] = sampleDataGroups;
+        }
 
+        /// <summary>
+        /// Вызывается при нажатии заголовка группы.
+        /// </summary>
+        /// <param name="sender">Объект Button, используемый в качестве заголовка выбранной группы.</param>
+        /// <param name="e">Данные о событии, описывающие, каким образом было инициировано нажатие.</param>
+        void Header_Click(object sender, RoutedEventArgs e)
+        {
+            // Определение группы, представляемой экземпляром Button
+            var group = (sender as FrameworkElement).DataContext;
 
-            Object navigationParameter = e.NavigationParameter;
-            Dictionary<String, Object> pageState = e.PageState;
-            // Разрешение сохраненному состоянию страницы переопределять первоначально отображаемый элемент
-            if (pageState != null && pageState.ContainsKey("SelectedItem"))
-            {
-                navigationParameter = pageState["SelectedItem"];
-            }
+            // Переход к соответствующей странице назначения и настройка новой страницы
+            // путем передачи необходимой информации в виде параметра навигации
+            this.Frame.Navigate(typeof(GroupDetailPage), ((SampleDataGroup)group).UniqueId);
+        }
 
-            // TODO: Создание соответствующей модели данных для области проблемы, чтобы заменить пример данных
-            var item = await SampleDataSource.GetItemAsync((String)navigationParameter);
-            //var group = await SampleDataSource.GetGroupAsync((String)navigationParameter);
-            //this.DefaultViewModel["Group"] = group;
-            //this.DefaultViewModel["Items"] = group.Items;
+        /// <summary>
+        /// Вызывается при нажатии элемента внутри группы.
+        /// </summary>
+        /// <param name="sender">Объект GridView (или ListView, если приложение прикреплено),
+        /// в котором отображается нажатый элемент.</param>
+        /// <param name="e">Данные о событии, описывающие нажатый элемент.</param>
+        void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // Переход к соответствующей странице назначения и настройка новой страницы
+            // путем передачи необходимой информации в виде параметра навигации
+            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            this.Frame.Navigate(typeof(GroupDetailPage), itemId);
 
-            this.DefaultViewModel["Item"] = item;
-            this.flipView.SelectedItem = item;
+            //Исправить на группы!!!!!!!!!!!!!!!!!!!!
+
+            //var itemId = ((SubjectItem)e.ClickedItem).UniqueId;
+            //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 
         #region Регистрация NavigationHelper
@@ -97,7 +113,6 @@ namespace App1
         /// Параметр навигации доступен в методе LoadState 
         /// в дополнение к состоянию страницы, сохраненному в ходе предыдущего сеанса.
 
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
@@ -109,6 +124,5 @@ namespace App1
         }
 
         #endregion
-
     }
 }

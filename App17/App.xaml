@@ -1,0 +1,27 @@
+﻿<Application
+    x:Class="App17.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App17"
+    xmlns:localData="using:App17.Data">
+
+    <Application.Resources>
+
+        <!-- Ресурсы, зависящие от приложения -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- 
+                    Стили, определяющие общие особенности внешнего вида и функциональности платформы
+                    Требуются для шаблонов элементов и проекта Visual Studio
+                 -->
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Ресурсы, зависящие от приложения -->
+
+            <x:String x:Key="AppName">App17</x:String>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

@@ -1,5 +1,5 @@
-﻿using App1.Common;
-using App1.Data;
+﻿using App17.Common;
+using App17.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,14 +14,15 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// Шаблон элемента страницы сведений об элементе задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234232
+// Шаблон элемента страницы сведений о группе задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234229
 
-namespace App1
+namespace App17
 {
     /// <summary>
-    /// Страница, на которой отображаются сведения об отдельном элементе внутри группы.
+    /// Страница, на которой показываются общие сведения об отдельной группе, включая предварительный просмотр элементов
+    /// внутри группы.
     /// </summary>
-    public sealed partial class ItemDetailPage_Student : Page
+    public sealed partial class GroupDetailPage : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -43,11 +44,23 @@ namespace App1
             get { return this.defaultViewModel; }
         }
 
-        public ItemDetailPage_Student()
+
+        public GroupDetailPage()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
+
+            //var template = itemFlipView.ItemTemplate;
+            //var webb = (WebView)template.LoadContent();
+            //webb.Loaded += webb_Loaded;
+
+            //string sXAML = @"<DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation""><WebView /></DataTemplate>";
+
+            //var itemsTemplate = Windows.UI.Xaml.Markup.XamlReader.Load(sXAML) as DataTemplate;
+
+
+            //this.itemFlipView.ItemTemplate = itemsTemplate;
         }
 
         /// <summary>
@@ -63,29 +76,31 @@ namespace App1
         /// сеанса.  Это состояние будет равно NULL при первом посещении страницы.</param>
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            String navigationParameter = (String)e.NavigationParameter;
+
             // TODO: Создание соответствующей модели данных для области проблемы, чтобы заменить пример данных
-            //var item = await SampleDataSource.GetItemAsync((String)e.NavigationParameter);
-            //this.DefaultViewModel["Item"] = item;
+            var group = await SampleDataSource.GetGroupFromItemAsync(navigationParameter);
+            this.DefaultViewModel["Group"] = group;
+            this.DefaultViewModel["Items"] = group.Items;
 
+            ///////////////////////
 
-            Object navigationParameter = e.NavigationParameter;
-            Dictionary<String, Object> pageState = e.PageState;
-            // Разрешение сохраненному состоянию страницы переопределять первоначально отображаемый элемент
-            if (pageState != null && pageState.ContainsKey("SelectedItem"))
+            SampleDataItem item;
+            if (navigationParameter.Contains("Item"))
             {
-                navigationParameter = pageState["SelectedItem"];
+                item = await SampleDataSource.GetItemAsync(navigationParameter);            
             }
+            else 
+                // Если нажать по заголовку, выбрать 1-ый элемент 
+            {
+                item = await SampleDataSource.GetItemAsync(navigationParameter + "-Item-1"); 
+            }
+            this.itemFlipView.SelectedItem = item;
+            //////////////////
 
-            // TODO: Создание соответствующей модели данных для области проблемы, чтобы заменить пример данных
-            var item = await SampleDataSource.GetItemAsync((String)navigationParameter);
-            //var group = await SampleDataSource.GetGroupAsync((String)navigationParameter);
-            //this.DefaultViewModel["Group"] = group;
-            //this.DefaultViewModel["Items"] = group.Items;
-
-            this.DefaultViewModel["Item"] = item;
-            this.flipView.SelectedItem = item;
         }
 
+        
         #region Регистрация NavigationHelper
 
         /// Методы, предоставленные в этом разделе, используются исключительно для того, чтобы
@@ -96,7 +111,6 @@ namespace App1
         /// и <see cref="GridCS.Common.NavigationHelper.SaveState"/>.
         /// Параметр навигации доступен в методе LoadState 
         /// в дополнение к состоянию страницы, сохраненному в ходе предыдущего сеанса.
-
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -110,5 +124,9 @@ namespace App1
 
         #endregion
 
+        private void webb_Loaded(object sender, RoutedEventArgs e)
+        {
+            (sender as WebView).Navigate(new Uri("http://stackoverflow.com/questions/13322183/unable-to-load-a-website-in-webview-inside-flipview"));
+        }
     }
 }
