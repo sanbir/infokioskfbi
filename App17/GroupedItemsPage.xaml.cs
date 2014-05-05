@@ -91,12 +91,25 @@ namespace App17
         /// <param name="e">Данные о событии, описывающие нажатый элемент.</param>
         void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            SampleDataItem item = (SampleDataItem)e.ClickedItem;
+
+            if (item.ItemType == "launch") 
+            {
+                // Возвожно поменять на другое свойство или вообще ввести новое!!!!!!!
+                DefaultLaunch(item.ImagePath);
+                return;
+            }
+
+            var itemId = item.UniqueId;
+            if (item.ItemType == "menu")
+            {
+                // GroupId ?
+                this.Frame.Navigate(typeof(GroupedItemsPage), itemId);
+                return;
+            }
+
             // Переход к соответствующей странице назначения и настройка новой страницы
             // путем передачи необходимой информации в виде параметра навигации
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-
-
-
             this.Frame.Navigate(typeof(GroupDetailPage), itemId);
 
             //Исправить на группы!!!!!!!!!!!!!!!!!!!!
@@ -127,5 +140,32 @@ namespace App17
         }
 
         #endregion
+
+        async void DefaultLaunch(string filename)
+        {
+            filename = filename.Replace('/', '\\');
+
+            var file = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(filename);
+            if (file != null)
+            {
+                // Set the option to show the picker
+                var options = new Windows.System.LauncherOptions();
+                options.DisplayApplicationPicker = true;
+                // Launch the retrieved file
+                bool success = await Windows.System.Launcher.LaunchFileAsync(file, options);
+                if (success)
+                {
+                    // File launched
+                }
+                else
+                {
+                    // File launch failed
+                }
+            }
+            else
+            {
+                // Could not find file
+            }
+        }
     }
 }
