@@ -53,7 +53,9 @@
             HorizontalAlignment="Left" >
             <!--ItemTemplate="{StaticResource WebBrowserItemTemplate}"-->
             <!--<FlipView.ItemTemplate>
-            
+                <DataTemplate>
+                    <TextBox Text="Элемент отображается неправильно" FontSize="50" />
+                </DataTemplate>
             </FlipView.ItemTemplate>-->
 
             <FlipView.ItemContainerStyle>
