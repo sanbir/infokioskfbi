@@ -23,7 +23,8 @@ namespace App17.Data
     /// </summary>
     public class SampleDataItem
     {
-        public SampleDataItem(String uniqueId, String title, String subtitle, String imagePath, String description, String content, String itemType)
+        public SampleDataItem(String uniqueId, String title, String subtitle, String imagePath,
+            String description, String content, String itemType, String icon)
         {
             this.UniqueId = uniqueId;
             this.Title = title;
@@ -32,6 +33,7 @@ namespace App17.Data
             this.ImagePath = imagePath;
             this.Content = content;
             this.ItemType = itemType;
+            this.Icon = icon;
         }
 
         public string UniqueId { get; private set; }
@@ -41,6 +43,7 @@ namespace App17.Data
         public string ImagePath { get; private set; }
         public string Content { get; private set; }
         public string ItemType { get; private set; }
+        public string Icon { get; private set; }
 
         public override string ToString()
         {
@@ -157,7 +160,8 @@ namespace App17.Data
                                                        itemObject["ImagePath"].GetString(),
                                                        itemObject["Description"].GetString(),
                                                        itemObject["Content"].GetString(),
-                                                       itemObject["ItemType"].GetString()));
+                                                       itemObject["ItemType"].GetString(),
+                                                       itemObject["Icon"].GetString()));
                 }
                 this.Groups.Add(group);
             }
