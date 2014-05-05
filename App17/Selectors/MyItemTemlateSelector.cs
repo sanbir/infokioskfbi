@@ -13,12 +13,6 @@ namespace App17.Selectors
 {
     class MyItemTemlateSelector : DataTemplateSelector
     {
-        //public DataTemplate WebBrowserTemplate { get; set; }
-        //public DataTemplate PhotoTemplate { get; set; }
-        //public DataTemplate MsWordTemplate { get; set; }
-        //public DataTemplate MsExcelTemplate { get; set; }
-        //public DataTemplate UserStandardTemplate { get; set; }
-
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
             SampleDataItem selectedItem = item as SampleDataItem;
@@ -38,27 +32,100 @@ namespace App17.Selectors
                     <Image Source=""{Binding ImagePath}"" />
                 </DataTemplate>";
             }
-            else if (selectedItem.ItemType == "word")
+//            else //if (selectedItem.ItemType == "user")
+//            {
+//                template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:common=""using:App17.Common"">
+//        <ScrollViewer Style=""{StaticResource HorizontalScrollViewerStyle}"" Grid.Row=""1"">
+//            <common:RichTextColumns x:Name=""richTextColumns"" Margin=""117,0,117,47"" VerticalAlignment=""Top"">
+//                <RichTextBlock x:Name=""richTextBlock"" Width=""560"" Style=""{StaticResource ItemRichTextStyle}"" IsTextSelectionEnabled=""False"">
+//                    <Paragraph>
+//                        <Run FontSize=""26.667"" FontWeight=""Light"" Text=""{Binding Title}""/>
+//                        <LineBreak/>
+//                        <LineBreak/>
+//                        <Run FontWeight=""Normal"" Text=""{Binding Subtitle}""/>
+//                    </Paragraph>
+//                    <Paragraph LineStackingStrategy=""MaxHeight"">
+//                        <InlineUIContainer>
+//                            <Image MaxHeight=""480"" Width=""300"" Margin=""0,20,0,10"" Stretch=""Uniform"" Source=""{Binding ImagePath}"" AutomationProperties.Name=""{Binding Title}""/>
+//                        </InlineUIContainer>
+//                    </Paragraph>
+//                    <Paragraph>
+//                        <Run FontWeight=""SemiLight"" Text=""{Binding Content}""/>
+//                    </Paragraph>
+//                </RichTextBlock>
+//                <common:RichTextColumns.ColumnTemplate>
+//                    <DataTemplate>
+//                        <RichTextBlockOverflow Width=""560"" Margin=""80,0,0,0"">
+//                            <RichTextBlockOverflow.RenderTransform>
+//                                <TranslateTransform X=""-1"" Y=""4""/>
+//                            </RichTextBlockOverflow.RenderTransform>
+//                        </RichTextBlockOverflow>
+//                    </DataTemplate>
+//                </common:RichTextColumns.ColumnTemplate>
+//            </common:RichTextColumns>
+//        </ScrollViewer>
+//    </DataTemplate>";
+//            }
+
+//            else
+//            {
+//                template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
+//        <ScrollViewer Style=""{StaticResource HorizontalScrollViewerStyle}"" Grid.Row=""1"">
+//
+//                <RichTextBlock Width=""560"" Style=""{StaticResource ItemRichTextStyle}"" IsTextSelectionEnabled=""False"">
+//                    <Paragraph>
+//                        <Run FontSize=""26.667"" FontWeight=""Light"" Text=""{Binding Title}""/>
+//                        <LineBreak/>
+//                        <LineBreak/>
+//                        <Run FontWeight=""Normal"" Text=""{Binding Subtitle}""/>
+//                    </Paragraph>
+//                    <Paragraph LineStackingStrategy=""MaxHeight"">
+//                        <InlineUIContainer>
+//                            <Image MaxHeight=""480"" Width=""300"" Margin=""0,20,0,10"" Stretch=""Uniform"" Source=""{Binding ImagePath}"" AutomationProperties.Name=""{Binding Title}""/>
+//                        </InlineUIContainer>
+//                    </Paragraph>
+//                    <Paragraph>
+//                        <Run FontWeight=""SemiLight"" Text=""{Binding Content}""/>
+//                    </Paragraph>
+//                </RichTextBlock>
+//
+//        </ScrollViewer>
+//    </DataTemplate>";
+//            }
+
+            else
             {
-                template = @"
-                <DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
-                    
-                </DataTemplate>";
-            }
-            else if (selectedItem.ItemType == "excel")
-            {
-                template = @"
-                <DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
-                    
-                </DataTemplate>";
-            }
-            else if (selectedItem.ItemType == "user")
-            {
-                template = @"";
-            }
-            else 
-            {
-                template = "";
+                template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:common='using:App17.Common'>
+                        <ScrollViewer Style=""{StaticResource HorizontalScrollViewerStyle}"" Grid.Row=""1"">
+                            <common:RichTextColumns Margin=""117,0,117,47"" VerticalAlignment=""Top"">
+                                <RichTextBlock Width=""560"" Style=""{StaticResource ItemRichTextStyle}"" IsTextSelectionEnabled=""False"">
+                                    <Paragraph>
+                                        <Run FontSize=""26.667"" FontWeight=""Light"" Text=""{Binding Title}""/>
+                                        <LineBreak/>
+                                        <LineBreak/>
+                                        <Run FontWeight=""Normal"" Text=""{Binding Subtitle}""/>
+                                    </Paragraph>
+                                    <Paragraph LineStackingStrategy=""MaxHeight"">
+                                        <InlineUIContainer>
+                                            <Image MaxHeight=""480"" Width=""300"" Margin=""0,20,0,10"" Stretch=""Uniform"" Source=""{Binding ImagePath}"" AutomationProperties.Name=""{Binding Title}""/>
+                                        </InlineUIContainer>
+                                    </Paragraph>
+                                    <Paragraph>
+                                        <Run FontWeight=""SemiLight"" Text=""{Binding Content}""/>
+                                    </Paragraph>
+                                </RichTextBlock>
+                                <common:RichTextColumns.ColumnTemplate>
+                                    <DataTemplate>
+                                        <RichTextBlockOverflow Width=""560"" Margin=""80,0,0,0"">
+                                            <RichTextBlockOverflow.RenderTransform>
+                                                <TranslateTransform X=""-1"" Y=""4""/>
+                                            </RichTextBlockOverflow.RenderTransform>
+                                        </RichTextBlockOverflow>
+                                    </DataTemplate>
+                                </common:RichTextColumns.ColumnTemplate>
+                            </common:RichTextColumns>
+                        </ScrollViewer>
+                    </DataTemplate>";
             }
 
             return XamlReader.Load(template) as DataTemplate;
