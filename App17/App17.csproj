@@ -124,6 +124,8 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Photos\516_10.jpg" />
+    <Content Include="Photos\Dean.jpg" />
     <None Include="Common\ReadMe.txt" />
     <None Include="App17_TemporaryKey.pfx" />
     <Content Include="DataModel\StudentData.json">
@@ -163,6 +165,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

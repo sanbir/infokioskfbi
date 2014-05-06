@@ -115,8 +115,6 @@ namespace App17
                 //{
                 //    SampleDataSource.SubMenu = "GuestData.json";
                 //}
-                
-
 
                 // GroupId ?
                 this.Frame.Navigate(typeof(GroupedItemsPage), itemId);

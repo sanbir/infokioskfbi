@@ -192,22 +192,23 @@ namespace App17.Common
         public virtual void GoBack()
         {
             //GroupedItemsPage page1;
-            //if (this.Page is GroupedItemsPage) 
+            //if (this.Page is GroupedItemsPage)
             //{
             //    page1 = (GroupedItemsPage)this.Page;
             //}
 
-
             if (this.Frame != null && this.Frame.CanGoBack) 
             {
-                if (SampleDataSource.SubMenu == "StudentData.json"
-                    || SampleDataSource.SubMenu == "TeacherData.json"
-                    || SampleDataSource.SubMenu == "GuestData.json")
+                if (this.Page is GroupedItemsPage)
                 {
-                    SampleDataSource.SubMenu = "StartData.json";
+                    if (SampleDataSource.SubMenu == "StudentData.json"
+                        || SampleDataSource.SubMenu == "TeacherData.json"
+                        || SampleDataSource.SubMenu == "GuestData.json")
+                    {
+                        SampleDataSource.SubMenu = "StartData.json";
+                    }
+                    //else if (SampleDataSource.SubMenu == "StudentData.json")
                 }
-                //else if (SampleDataSource.SubMenu == "StudentData.json")
-
 
                 this.Frame.GoBack();
             }
