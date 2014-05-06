@@ -1689,7 +1689,16 @@
     <DataTemplate x:Key="Standard250x250ItemTemplate">
         <Grid HorizontalAlignment="Left" Width="250" Height="250">
             <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
-                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                <Grid>
+                    <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                    <Viewbox Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Path Fill="{StaticResource MyBlueGrafient}" Data="{Binding Icon}" 
+                                                  Stretch="Uniform"  
+                                                  Width="26" Height="26" 
+                                                  Margin="0" RenderTransformOrigin="0.5,0.5">
+                        </Path>
+                    </Viewbox>
+                </Grid>
             </Border>
             <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
                 <TextBlock Text="{Binding Title}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="60" Margin="15,0,15,0"/>

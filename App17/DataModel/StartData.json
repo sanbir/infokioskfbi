@@ -3,7 +3,7 @@
     "UniqueId": "Group-1",
     "Title": "Вход",
     "Subtitle": "Выберите тип учетной записи",
-    "ImagePath": "Assets/DarkGray.png",
+    "ImagePath": "",
     "Description" : "",
     "Items":
     [

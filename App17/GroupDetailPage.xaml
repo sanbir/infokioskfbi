@@ -70,6 +70,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="220"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
                         Style="{StaticResource NavigationBackButtonNormalStyle}"
@@ -79,6 +80,20 @@
                         AutomationProperties.ItemType="Navigation Button"/>
             <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+            <Viewbox Grid.Column="2">
+                <Path Data="{StaticResource ResourceKey=AppLogo}" 
+							        Stretch="Uniform"
+							        Fill="{StaticResource MyBlueGrafient}"
+							        Width="80" Height="40" 
+							        Margin="5" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="0" />
+                            <ScaleTransform ScaleX="-1" ScaleY="1" />
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Viewbox>
         </Grid>
     </Grid>
 </Page>
