@@ -9,6 +9,8 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using App17;
+using App17.Data;
 
 namespace App17.Common
 {
@@ -189,7 +191,26 @@ namespace App17.Common
         /// </summary>
         public virtual void GoBack()
         {
-            if (this.Frame != null && this.Frame.CanGoBack) this.Frame.GoBack();
+            //GroupedItemsPage page1;
+            //if (this.Page is GroupedItemsPage) 
+            //{
+            //    page1 = (GroupedItemsPage)this.Page;
+            //}
+
+
+            if (this.Frame != null && this.Frame.CanGoBack) 
+            {
+                if (SampleDataSource.SubMenu == "StudentData.json"
+                    || SampleDataSource.SubMenu == "TeacherData.json"
+                    || SampleDataSource.SubMenu == "GuestData.json")
+                {
+                    SampleDataSource.SubMenu = "StartData.json";
+                }
+                //else if (SampleDataSource.SubMenu == "StudentData.json")
+
+
+                this.Frame.GoBack();
+            }
         }
         /// <summary>
         /// Виртуальный метод, используемый свойством <see cref="GoForwardCommand"/>

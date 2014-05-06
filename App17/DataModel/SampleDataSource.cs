@@ -134,14 +134,15 @@ namespace App17.Data
 
         private async Task GetSampleDataAsync()
         {
-            if (SubMenu == "StudentData.json" || SubMenu == "TeacherData.json") 
-            {
-                this.Groups.Clear();
-            }
-            else if (this._groups.Count != 0)
-            {
-                return;
-            }
+            //if (SubMenu == "StudentData.json" || SubMenu == "TeacherData.json") 
+            //{
+            //    this.Groups.Clear();
+            //}
+            //else if (this._groups.Count != 0)
+            //{
+            //    return;
+            //}
+            this.Groups.Clear();
 
             Uri dataUri = new Uri("ms-appx:///DataModel/" + SubMenu);
 
