@@ -135,7 +135,7 @@ namespace App17.Data
             if (this._groups.Count != 0)
                 return;
 
-            Uri dataUri = new Uri("ms-appx:///DataModel/SampleData.json");
+            Uri dataUri = new Uri("ms-appx:///DataModel/StartData.json");
 
             StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
             string jsonText = await FileIO.ReadTextAsync(file);

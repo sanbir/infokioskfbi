@@ -17,7 +17,7 @@
         <CollectionViewSource
             x:Name="itemsViewSource"
             Source="{Binding Items}"
-            d:Source="{Binding Groups[0].Items, Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"/>
+            d:Source="{Binding Groups[0].Items, Source={d:DesignData Source=/DataModel/StartData.json, Type=data:SampleDataSource}}"/>
 
         <selectors:MyItemTemlateSelector x:Key="myItemTemlateSelector" />
     </Page.Resources>
@@ -29,7 +29,7 @@
     -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
         DataContext="{Binding Group}"
-        d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}">
+        d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/StartData.json, Type=data:SampleDataSource}}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>

@@ -126,7 +126,13 @@
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
     <None Include="App17_TemporaryKey.pfx" />
-    <Content Include="DataModel\SampleData.json">
+    <Content Include="DataModel\StudentData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataModel\StartData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataModel\TeacherData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
