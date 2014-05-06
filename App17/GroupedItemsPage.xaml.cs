@@ -103,6 +103,20 @@ namespace App17
             var itemId = item.UniqueId;
             if (item.ItemType == "menu")
             {
+                if (item.Title == "Студент") 
+                {
+                    SampleDataSource.SubMenu = "StudentData.json";
+                }
+                else if (item.Title == "Преподаватель") 
+                {
+                    SampleDataSource.SubMenu = "TeacherData.json";
+                }
+                //else if (item.Title == "Гость")
+                //{
+                //    SampleDataSource.SubMenu = "GuestData.json";
+                //}
+
+
                 // GroupId ?
                 this.Frame.Navigate(typeof(GroupedItemsPage), itemId);
                 return;

@@ -87,6 +87,8 @@ namespace App17.Data
     /// </summary>
     public sealed class SampleDataSource
     {
+        public static string SubMenu { get; set; }
+
         private static SampleDataSource _sampleDataSource = new SampleDataSource();
 
         private ObservableCollection<SampleDataGroup> _groups = new ObservableCollection<SampleDataGroup>();
@@ -132,10 +134,16 @@ namespace App17.Data
 
         private async Task GetSampleDataAsync()
         {
-            if (this._groups.Count != 0)
+            if (SubMenu == "StudentData.json" || SubMenu == "TeacherData.json") 
+            {
+                this.Groups.Clear();
+            }
+            else if (this._groups.Count != 0)
+            {
                 return;
+            }
 
-            Uri dataUri = new Uri("ms-appx:///DataModel/StartData.json");
+            Uri dataUri = new Uri("ms-appx:///DataModel/" + SubMenu);
 
             StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
             string jsonText = await FileIO.ReadTextAsync(file);

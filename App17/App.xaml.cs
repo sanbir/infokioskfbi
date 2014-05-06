@@ -1,4 +1,5 @@
 ﻿using App17.Common;
+using App17.Data;
 
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace App17
         /// </summary>
         public App()
         {
+            SampleDataSource.SubMenu = "StartData.json";
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
