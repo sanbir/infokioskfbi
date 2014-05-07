@@ -88,15 +88,19 @@ namespace App17
             SampleDataItem item;
             if (navigationParameter.Contains("Item"))
             {
-                item = await SampleDataSource.GetItemAsync(navigationParameter);            
+                item = await SampleDataSource.GetItemAsync(navigationParameter);
             }
-            else 
-                // Если нажать по заголовку, выбрать 1-ый элемент 
+            else
+            // Если нажать по заголовку, выбрать 1-ый элемент 
             {
-                item = await SampleDataSource.GetItemAsync(navigationParameter + "-Item-1"); 
+                item = await SampleDataSource.GetItemAsync(navigationParameter + "-Item-1");
             }
-            this.itemFlipView.SelectedItem = item;
-            //////////////////
+            //itemFlipView.SelectedItem = item;
+            ////////////////
+            int ww = item.UniqueId.Length - 1;
+            var ii = item.UniqueId[item.UniqueId.Length - 1];
+            int qq = int.Parse(item.UniqueId[item.UniqueId.Length - 1].ToString()) - 1;
+            itemFlipView.SelectedIndex = qq;
 
         }
 
