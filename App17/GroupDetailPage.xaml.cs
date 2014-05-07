@@ -101,7 +101,7 @@ namespace App17
             var ii = item.UniqueId[item.UniqueId.Length - 1];
             int qq = int.Parse(item.UniqueId[item.UniqueId.Length - 1].ToString()) - 1;
             itemFlipView.SelectedIndex = qq;
-
+            
         }
 
         

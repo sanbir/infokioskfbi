@@ -119,12 +119,16 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Selectors\MyItemTemlateSelector.cs" />
+    <Compile Include="Selectors\MyTileSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Photos\516_10.jpg" />
+    <Content Include="Photos\94_1.gif" />
+    <Content Include="Photos\94_3.gif" />
+    <Content Include="Photos\94_5.JPG" />
     <Content Include="Photos\Dean.jpg" />
     <None Include="Common\ReadMe.txt" />
     <None Include="App17_TemporaryKey.pfx" />

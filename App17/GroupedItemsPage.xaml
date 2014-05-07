@@ -7,6 +7,7 @@
     xmlns:local="using:App17"
     xmlns:data="using:App17.Data"
     xmlns:common="using:App17.Common"
+    xmlns:selectors="using:App17.Selectors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -23,6 +24,8 @@
             IsSourceGrouped="true"
             ItemsPath="Items"
             d:Source="{Binding Groups, Source={d:DesignData Source=/DataModel/StartData.json, Type=data:SampleDataSource}}"/>
+
+        <selectors:MyTileSelector x:Key="myTileSelector" />
     </Page.Resources>
 
     <!--
@@ -49,7 +52,7 @@
             Grid.RowSpan="2"
             Padding="116,137,40,46"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
-            ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
+            ItemTemplateSelector="{StaticResource myTileSelector}"
             SelectionMode="None"
             IsSwipeEnabled="false"
             IsItemClickEnabled="True"
