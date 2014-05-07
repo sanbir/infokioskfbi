@@ -271,7 +271,7 @@
   },
   {
     "UniqueId": "Group-5",
-    "Title": "",
+    "Title": "Новости",
     "Subtitle": "",
     "ImagePath": "",
     "Description" : "",
@@ -279,6 +279,86 @@
     [
       {
         "UniqueId": "Group-5-Item-1",
+        "Title": "",
+        "Subtitle": "",
+        "ImagePath": "",
+        "Description" : "",
+        "Content" : "",
+        "ItemType": "",
+        "Icon": ""
+      }
+    ]
+  },
+  {
+    "UniqueId": "Group-6",
+    "Title": "Профком",
+    "Subtitle": "",
+    "ImagePath": "",
+    "Description" : "",
+    "Items":
+    [
+      {
+        "UniqueId": "Group-6-Item-1",
+        "Title": "",
+        "Subtitle": "",
+        "ImagePath": "",
+        "Description" : "",
+        "Content" : "",
+        "ItemType": "",
+        "Icon": ""
+      }
+    ]
+  },
+  {
+    "UniqueId": "Group-7",
+    "Title": "Библиотека",
+    "Subtitle": "",
+    "ImagePath": "",
+    "Description" : "",
+    "Items":
+    [
+      {
+        "UniqueId": "Group-7-Item-1",
+        "Title": "",
+        "Subtitle": "",
+        "ImagePath": "http://81.1.243.214",
+        "Description" : "",
+        "Content" : "",
+        "ItemType": "",
+        "Icon": "M18.698001,56.938L18.698001,59.728001 31.349,59.728001 31.349,56.938z M1.8610001,56.938L1.8610001,59.727997 11.535001,59.727997 11.535001,56.938z M59.898386,55.058998L45.885002,57.419712 46.34852,60.171997 60.362001,57.811481z M52.786489,12.724999L38.773001,15.086076 39.236515,17.838997 53.250002,15.477921z M1.8610001,10.271L1.8610001,13.061001 11.535001,13.061001 11.535001,10.271z M54.079065,9.757L62.307001,61.243523 45.055634,64 36.829,12.513545z M0,5.21L13.394,5.21 13.394,64 0,64z M18.698001,4.9379997L18.698001,7.7279997 31.349,7.7279997 31.349,4.9379997z M17.023001,0L33.023001,0 33.023001,64 17.023001,64z"
+      }
+    ]
+  },
+  {
+    "UniqueId": "Group-8",
+    "Title": "Спорт",
+    "Subtitle": "",
+    "ImagePath": "",
+    "Description" : "",
+    "Items":
+    [
+      {
+        "UniqueId": "Group-8-Item-1",
+        "Title": "",
+        "Subtitle": "",
+        "ImagePath": "",
+        "Description" : "",
+        "Content" : "",
+        "ItemType": "",
+        "Icon": ""
+      }
+    ]
+  },
+  {
+    "UniqueId": "Group-9",
+    "Title": "СДО",
+    "Subtitle": "",
+    "ImagePath": "",
+    "Description" : "",
+    "Items":
+    [
+      {
+        "UniqueId": "Group-9-Item-1",
         "Title": "",
         "Subtitle": "",
         "ImagePath": "",
