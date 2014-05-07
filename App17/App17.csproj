@@ -125,11 +125,18 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Photos\33698_html_m6c317825.jpg" />
     <Content Include="Photos\516_10.jpg" />
+    <Content Include="Photos\829_1.gif" />
     <Content Include="Photos\94_1.gif" />
     <Content Include="Photos\94_3.gif" />
     <Content Include="Photos\94_5.JPG" />
     <Content Include="Photos\Dean.jpg" />
+    <Content Include="Photos\image73892858.jpg" />
+    <Content Include="Photos\image73892868.jpg" />
+    <Content Include="Photos\images.jpg" />
+    <Content Include="Photos\IMG_6196_b.jpg" />
+    <Content Include="Photos\IMG_8316_b.jpg" />
     <None Include="Common\ReadMe.txt" />
     <None Include="App17_TemporaryKey.pfx" />
     <Content Include="DataModel\StudentData.json">
@@ -141,6 +148,9 @@
     <Content Include="DataModel\TeacherData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Documents\fbi.xls" />
+    <Content Include="Documents\programm%281%29.doc" />
+    <Content Include="Documents\TicTacToe-4up.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-100.png" />
