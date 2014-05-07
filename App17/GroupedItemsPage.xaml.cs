@@ -25,6 +25,8 @@ namespace App17
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        public static bool IsLoggedIn = false;
+        private static SampleDataItem selectedItem;
 
         /// <summary>
         /// NavigationHelper используется на каждой странице для облегчения навигации и 
@@ -91,44 +93,17 @@ namespace App17
         /// <param name="e">Данные о событии, описывающие нажатый элемент.</param>
         void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            SampleDataItem item = (SampleDataItem)e.ClickedItem;
+            selectedItem = ((SampleDataItem)e.ClickedItem);
 
-            if (item.ItemType == "launch") 
+            if (selectedItem.Title == "Студент" || selectedItem.Title == "Преподаватель")
             {
-                // Возвожно поменять на другое свойство или вообще ввести новое!!!!!!!
-                DefaultLaunch(item.ImagePath);
+                IsLoggedIn = false;
+                grdPassword.Visibility = Visibility.Visible;
+                AnimationOpened.Begin();
                 return;
             }
 
-            var itemId = item.UniqueId;
-            if (item.ItemType == "menu")
-            {
-                if (item.Title == "Студент") 
-                {
-                    SampleDataSource.SubMenu = "StudentData.json";
-                }
-                else if (item.Title == "Преподаватель") 
-                {
-                    SampleDataSource.SubMenu = "TeacherData.json";
-                }
-                //else if (item.Title == "Гость")
-                //{
-                //    SampleDataSource.SubMenu = "GuestData.json";
-                //}
-
-                // GroupId ?
-                this.Frame.Navigate(typeof(GroupedItemsPage), itemId);
-                return;
-            }
-
-            // Переход к соответствующей странице назначения и настройка новой страницы
-            // путем передачи необходимой информации в виде параметра навигации
-            this.Frame.Navigate(typeof(GroupDetailPage), itemId);
-
-            //Исправить на группы!!!!!!!!!!!!!!!!!!!!
-
-            //var itemId = ((SubjectItem)e.ClickedItem).UniqueId;
-            //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+            doEnter();
         }
 
         #region Регистрация NavigationHelper
@@ -179,6 +154,60 @@ namespace App17
             {
                 // Could not find file
             }
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            IsLoggedIn = true;
+            AnimationClosed.Begin();
+            doEnter();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            IsLoggedIn = false;
+            AnimationClosed.Begin();
+            grdPassword.Visibility = Visibility.Collapsed;
+        }
+
+        private void doEnter() 
+        {
+            if (selectedItem.ItemType == "launch")
+            {
+                // Возвожно поменять на другое свойство или вообще ввести новое!!!!!!!
+                DefaultLaunch(selectedItem.ImagePath);
+                return;
+            }
+
+            var itemId = selectedItem.UniqueId;
+            if (selectedItem.ItemType == "menu")
+            {
+                if (selectedItem.Title == "Студент")
+                {
+                    SampleDataSource.SubMenu = "StudentData.json";
+                }
+                else if (selectedItem.Title == "Преподаватель")
+                {
+                    SampleDataSource.SubMenu = "TeacherData.json";
+                }
+                //else if (item.Title == "Гость")
+                //{
+                //    SampleDataSource.SubMenu = "GuestData.json";
+                //}
+
+                // GroupId ?
+                this.Frame.Navigate(typeof(GroupedItemsPage), itemId);
+                return;
+            }
+
+            // Переход к соответствующей странице назначения и настройка новой страницы
+            // путем передачи необходимой информации в виде параметра навигации
+            this.Frame.Navigate(typeof(GroupDetailPage), itemId);
+
+            //Исправить на группы!!!!!!!!!!!!!!!!!!!!
+
+            //var itemId = ((SubjectItem)e.ClickedItem).UniqueId;
+            //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
     }
 }
