@@ -22,7 +22,9 @@ namespace App17.Selectors
             {
                 template = @"
                 <DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
-                    <WebView />
+                    <WebView Source="""
+                    + selectedItem.ImagePath
+                    + @""" />
                 </DataTemplate>";
             }
             else if (selectedItem.ItemType == "photo")

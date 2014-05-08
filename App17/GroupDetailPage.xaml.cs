@@ -50,17 +50,6 @@ namespace App17
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
-
-            //var template = itemFlipView.ItemTemplate;
-            //var webb = (WebView)template.LoadContent();
-            //webb.Loaded += webb_Loaded;
-
-            //string sXAML = @"<DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation""><WebView /></DataTemplate>";
-
-            //var itemsTemplate = Windows.UI.Xaml.Markup.XamlReader.Load(sXAML) as DataTemplate;
-
-
-            //this.itemFlipView.ItemTemplate = itemsTemplate;
         }
 
         /// <summary>
@@ -103,7 +92,6 @@ namespace App17
             itemFlipView.SelectedIndex = qq;
             
         }
-
         
         #region Регистрация NavigationHelper
 
@@ -128,9 +116,6 @@ namespace App17
 
         #endregion
 
-        private void webb_Loaded(object sender, RoutedEventArgs e)
-        {
-            (sender as WebView).Navigate(new Uri("http://stackoverflow.com/questions/13322183/unable-to-load-a-website-in-webview-inside-flipview"));
-        }
+
     }
 }
