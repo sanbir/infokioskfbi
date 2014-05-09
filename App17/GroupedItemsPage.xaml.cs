@@ -51,7 +51,7 @@ namespace App17
 
         public GroupedItemsPage()
         {
-            MyBrProp = BrushesClass.MyBrushStaticObject.MyBrushProp;
+            MyBr = BrushesClass.MyBrushStaticObject.GoodBrush;
             //BrushesClass.MyBrushStaticObject.MyBrushProp = new SolidColorBrush(Colors.Blue);
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
@@ -216,18 +216,6 @@ namespace App17
             //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 
-        //public static readonly DependencyProperty GoodBrushProperty =
-        //DependencyProperty.Register(
-        //    "GoodBrush",
-        //    typeof(Brush),
-        //    typeof(Page), null
-        //);
-        //public Brush MyBrush
-        //{
-        //    get { return (Brush)GetValue(GoodBrushProperty); }
-        //    set { SetValue(GoodBrushProperty, (Brush)value); }
-        //}
-
         private void lookAndFeelCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (lookAndFeelCombo == null) return;
@@ -238,13 +226,15 @@ namespace App17
                     //Application.Current.RequestedTheme = ApplicationTheme.Dark;
                     //ResourceDictionary.Source = new Uri("ms-appx:///Themes/Blue.xaml", UriKind.Absolute);
                    // MyBrush = new SolidColorBrush(Colors.Green);
-                    BrushesClass.MyBrushStaticObject.MyBrushProp = new SolidColorBrush(Colors.Red);
+                    BrushesClass.MyBrushStaticObject.GoodBrush = new SolidColorBrush(Colors.Red);
+                    MyBr = BrushesClass.MyBrushStaticObject.GoodBrush;
                     break;
                 case 1:
                     //Application.Current.RequestedTheme = ApplicationTheme.Light;
                     //ResourceDictionary.Source = new Uri("ms-appx:///Themes/Red.xaml", UriKind.Absolute);
                     //MyBrush = new SolidColorBrush(Colors.Yellow);
-                    BrushesClass.MyBrushStaticObject.MyBrushProp = new SolidColorBrush(Colors.Yellow);
+                    BrushesClass.MyBrushStaticObject.GoodBrush = new SolidColorBrush(Colors.Yellow);
+                    MyBr = BrushesClass.MyBrushStaticObject.GoodBrush;
                     break;
                 //case 2:
                 //    resourceDictionary.Source = new Uri("/Themes/BureauBlue.xaml", UriKind.RelativeOrAbsolute);
@@ -276,7 +266,7 @@ namespace App17
             typeof(Brush),
             typeof(Page), null
         );
-        public Brush MyBrProp
+        public Brush MyBr
         {
             get { return (Brush)GetValue(MyBrProperty); }
             set { SetValue(MyBrProperty, (Brush)value); }

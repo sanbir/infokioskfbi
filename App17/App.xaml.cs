@@ -34,7 +34,7 @@ namespace App17
         /// </summary>
         public App()
         {
-            BrushesClass.MyBrushStaticObject.MyBrushProp = new SolidColorBrush(Colors.Blue);
+            BrushesClass.MyBrushStaticObject.GoodBrush = new SolidColorBrush(Colors.Blue);
             SampleDataSource.SubMenu = "StartData.json";
             this.InitializeComponent();
             this.Suspending += OnSuspending;

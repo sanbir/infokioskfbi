@@ -17,16 +17,11 @@ namespace App17.Selectors
             typeof(Brush),
             typeof(BrushesClass), null
         );
-        public Brush MyBrushProp
+        public Brush GoodBrush
         {
             get { return (Brush)GetValue(GoodBrushProperty); }
             set { SetValue(GoodBrushProperty, (Brush)value); }
         }
-
-        //public Brushes() 
-        //{
-        //    MyBrush = new SolidColorBrush(Colors.Tomato);
-        //}
 
         public static BrushesClass MyBrushStaticObject = new BrushesClass();
     }
