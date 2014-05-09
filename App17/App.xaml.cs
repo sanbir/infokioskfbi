@@ -1,6 +1,6 @@
 ﻿using App17.Common;
 using App17.Data;
-
+using App17.Selectors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +10,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,6 +34,7 @@ namespace App17
         /// </summary>
         public App()
         {
+            BrushesClass.MyBrushStaticObject.MyBrushProp = new SolidColorBrush(Colors.Blue);
             SampleDataSource.SubMenu = "StartData.json";
             this.InitializeComponent();
             this.Suspending += OnSuspending;

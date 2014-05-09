@@ -1,5 +1,6 @@
 ﻿using App17.Common;
 using App17.Data;
+using App17.Selectors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,7 +51,8 @@ namespace App17
 
         public GroupedItemsPage()
         {
-            //MyBrush = new SolidColorBrush(Colors.Red);
+            MyBrProp = BrushesClass.MyBrushStaticObject.MyBrushProp;
+            //BrushesClass.MyBrushStaticObject.MyBrushProp = new SolidColorBrush(Colors.Blue);
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
@@ -236,11 +238,13 @@ namespace App17
                     //Application.Current.RequestedTheme = ApplicationTheme.Dark;
                     //ResourceDictionary.Source = new Uri("ms-appx:///Themes/Blue.xaml", UriKind.Absolute);
                    // MyBrush = new SolidColorBrush(Colors.Green);
+                    BrushesClass.MyBrushStaticObject.MyBrushProp = new SolidColorBrush(Colors.Red);
                     break;
                 case 1:
                     //Application.Current.RequestedTheme = ApplicationTheme.Light;
                     //ResourceDictionary.Source = new Uri("ms-appx:///Themes/Red.xaml", UriKind.Absolute);
                     //MyBrush = new SolidColorBrush(Colors.Yellow);
+                    BrushesClass.MyBrushStaticObject.MyBrushProp = new SolidColorBrush(Colors.Yellow);
                     break;
                 //case 2:
                 //    resourceDictionary.Source = new Uri("/Themes/BureauBlue.xaml", UriKind.RelativeOrAbsolute);
@@ -264,6 +268,18 @@ namespace App17
                     //ResourceDictionary.Source = new Uri("ms-appx:///Themes/Blue.xaml", UriKind.Absolute);
                     break;
             }
+        }
+
+        public static readonly DependencyProperty MyBrProperty =
+        DependencyProperty.Register(
+            "MyBr",
+            typeof(Brush),
+            typeof(Page), null
+        );
+        public Brush MyBrProp
+        {
+            get { return (Brush)GetValue(MyBrProperty); }
+            set { SetValue(MyBrProperty, (Brush)value); }
         }
     }
 }

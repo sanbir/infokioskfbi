@@ -9,23 +9,25 @@ using Windows.UI.Xaml.Media;
 
 namespace App17.Selectors
 {
-    public class Brushes : DependencyObject
+    public class BrushesClass : DependencyObject
     {
         public static readonly DependencyProperty GoodBrushProperty =
         DependencyProperty.Register(
             "GoodBrush",
             typeof(Brush),
-            typeof(Brushes), null
+            typeof(BrushesClass), null
         );
-        public Brush MyBrush
+        public Brush MyBrushProp
         {
             get { return (Brush)GetValue(GoodBrushProperty); }
             set { SetValue(GoodBrushProperty, (Brush)value); }
         }
 
-        public Brushes() 
-        {
-            MyBrush = new SolidColorBrush(Colors.Tomato);
-        }
+        //public Brushes() 
+        //{
+        //    MyBrush = new SolidColorBrush(Colors.Tomato);
+        //}
+
+        public static BrushesClass MyBrushStaticObject = new BrushesClass();
     }
 }

@@ -26,6 +26,7 @@
             d:Source="{Binding Groups, Source={d:DesignData Source=/DataModel/StartData.json, Type=data:SampleDataSource}}"/>
 
         <selectors:MyTileSelector x:Key="myTileSelector" />
+        <selectors:BrushesClass x:Key="myBrushLocalObject"/>
 
         <Storyboard x:Name="AnimationOpened">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grdSdow">
@@ -301,12 +302,12 @@
                 </ComboBox>
             </StackPanel>
             <Viewbox Grid.Column="3">
-                <Viewbox.DataContext>
+                <!--<Viewbox.DataContext>
                     <selectors:Brushes />
-                </Viewbox.DataContext>
+                </Viewbox.DataContext>-->
                 <Path Data="{StaticResource ResourceKey=AppLogo}" 
 							        Stretch="Uniform"
-							        Fill="{Binding GoodBrush}"
+							        Fill="{Binding Path=MyBrProp, ElementName=pageRoot}"
 							        Width="80" Height="40" 
 							        Margin="5" RenderTransformOrigin="0.5,0.5">
                     <Path.RenderTransform>
