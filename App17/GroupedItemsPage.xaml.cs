@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -49,6 +50,7 @@ namespace App17
 
         public GroupedItemsPage()
         {
+            MyBrush = new SolidColorBrush(Colors.Red);
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
@@ -212,5 +214,16 @@ namespace App17
             //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 
+        public static readonly DependencyProperty GoodBrushProperty =
+        DependencyProperty.Register(
+            "GoodBrush",
+            typeof(Brush),
+            typeof(Page), null
+        );
+        public Brush MyBrush
+        {
+            get { return (Brush)GetValue(GoodBrushProperty); }
+            set { SetValue(GoodBrushProperty, (Brush)value); }
+        }
     }
 }

@@ -303,7 +303,7 @@
             <Viewbox Grid.Column="3">
                 <Path Data="{StaticResource ResourceKey=AppLogo}" 
 							        Stretch="Uniform"
-							        Fill="{Binding Path=Background, ElementName=lookAndFeelCombo}"
+							        Fill="{Binding ElementName=pageRoot,  Path=GoodBrush}"
 							        Width="80" Height="40" 
 							        Margin="5" RenderTransformOrigin="0.5,0.5">
                     <Path.RenderTransform>
