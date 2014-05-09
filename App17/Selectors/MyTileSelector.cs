@@ -37,7 +37,7 @@ namespace App17.Selectors
                 if (SampleDataSource.SubMenu == "StartData.json")
                 {
                     template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
-                                    <Grid HorizontalAlignment=""Left"" Width=""350"" Height=""350"">
+                                    <Grid HorizontalAlignment=""Left"" Width=""250"" Height=""250"">
                                         <Border Background=""{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"">
                                             <Viewbox Margin=""10"" HorizontalAlignment=""Center"" VerticalAlignment=""Center"">
                                                 <Path Fill=""{StaticResource MyBlueGrafient}"" Data=""{Binding Icon}"" 

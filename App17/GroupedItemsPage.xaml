@@ -199,7 +199,8 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
                         Style="{StaticResource NavigationBackButtonNormalStyle}"
@@ -208,8 +209,22 @@
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button"/>
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-            <Viewbox Grid.Column="2">
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,0,40"/>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Внешний вид" Style="{StaticResource PageSubheaderTextStyle}"
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,30,0,10"/>
+                <ComboBox x:Name="lookAndFeelCombo" SelectedIndex="0" SelectionChanged="lookAndFeelCombo_SelectionChanged">
+                    <ComboBoxItem Content="Темный синий"/>
+                    <ComboBoxItem Content="Светлый синий"/>
+                    <ComboBoxItem Content="Темный красный"/>
+                    <ComboBoxItem Content="Светлый красный"/>
+                    <ComboBoxItem Content="Темный зеленый"/>
+                    <ComboBoxItem Content="Светлый зеленый"/>
+                    <ComboBoxItem Content="Темный желтый"/>
+                    <ComboBoxItem Content="Светлый желтый"/>
+                </ComboBox>
+            </StackPanel>
+            <Viewbox Grid.Column="3">
                 <Path Data="{StaticResource ResourceKey=AppLogo}" 
 							        Stretch="Uniform"
 							        Fill="{StaticResource MyBlueGrafient}"

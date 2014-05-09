@@ -209,5 +209,46 @@ namespace App17
             //var itemId = ((SubjectItem)e.ClickedItem).UniqueId;
             //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
+
+        private void lookAndFeelCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ResourceDictionary resourceDictionary = new ResourceDictionary();
+
+            switch (lookAndFeelCombo.SelectedIndex)
+            {
+                case 0:
+                    Application.Current.RequestedTheme = ApplicationTheme.Dark;
+                    resourceDictionary.Source = new Uri("/Themes/DarkButton.xaml", UriKind.RelativeOrAbsolute);
+                    break;
+                case 1:
+                    Application.Current.RequestedTheme = ApplicationTheme.Light;
+                    resourceDictionary.Source = new Uri("/Themes/ShinyBlue.xaml", UriKind.RelativeOrAbsolute);
+                    break;
+                case 2:
+                    resourceDictionary.Source = new Uri("/Themes/BureauBlue.xaml", UriKind.RelativeOrAbsolute);
+                    break;
+                case 3:
+                    resourceDictionary.Source = new Uri("/Themes/ShinyDarkPurple.xaml", UriKind.RelativeOrAbsolute);
+                    break;
+                case 4:
+                    resourceDictionary.Source = new Uri("/Themes/UXMusingsBubblyBlue.xaml", UriKind.RelativeOrAbsolute);
+                    break;
+                case 5:
+                    resourceDictionary.Source = new Uri("/Themes/UXMusingsGreen.xaml", UriKind.RelativeOrAbsolute);
+                    break;
+                case 6:
+                    resourceDictionary.Source = new Uri("/Themes/UXMusingsRoughGreen.xaml", UriKind.RelativeOrAbsolute);
+                    break;
+                case 7:
+                    resourceDictionary.Source = new Uri("/Themes/RainierOrange.xaml", UriKind.RelativeOrAbsolute);
+                    break;
+                default:
+                    resourceDictionary.Source = new Uri("/Themes/BureauBlack.xaml", UriKind.RelativeOrAbsolute);
+                    break;
+            }
+
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+        }
     }
 }
