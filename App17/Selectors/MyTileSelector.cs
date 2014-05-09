@@ -40,7 +40,7 @@ namespace App17.Selectors
                                     <Grid HorizontalAlignment=""Left"" Width=""250"" Height=""250"">
                                         <Border Background=""{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"">
                                             <Viewbox Margin=""10"" HorizontalAlignment=""Center"" VerticalAlignment=""Center"">
-                                                <Path Fill=""{StaticResource MyBlueGrafient}"" Data=""{Binding Icon}"" 
+                                                <Path Fill=""{Binding Path=Background, ElementName=lookAndFeelCombo}"" Data=""{Binding Icon}"" 
                                                                             Stretch=""Uniform""  
                                                                             Width=""26"" Height=""26"" 
                                                                             Margin=""0"" RenderTransformOrigin=""0.5,0.5"">
@@ -60,7 +60,7 @@ namespace App17.Selectors
                                     <Grid HorizontalAlignment=""Left"" Width=""150"" Height=""150"">
                                         <Border Background=""{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"">
                                             <Viewbox Margin=""10"" HorizontalAlignment=""Center"" VerticalAlignment=""Center"">
-                                                <Path Fill=""{StaticResource MyBlueGrafient}"" Data=""{Binding Icon}"" 
+                                                <Path Fill=""{Binding Path=Background, ElementName=lookAndFeelCombo}"" Data=""{Binding Icon}"" 
                                                                             Stretch=""Uniform""  
                                                                             Width=""26"" Height=""26"" 
                                                                             Margin=""0"" RenderTransformOrigin=""0.5,0.5"">

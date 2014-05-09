@@ -213,21 +213,97 @@
             <StackPanel Grid.Column="2">
                 <TextBlock Text="Внешний вид" Style="{StaticResource PageSubheaderTextStyle}"
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,30,0,10"/>
-                <ComboBox x:Name="lookAndFeelCombo" SelectedIndex="0" SelectionChanged="lookAndFeelCombo_SelectionChanged">
-                    <ComboBoxItem Content="Темный синий"/>
-                    <ComboBoxItem Content="Светлый синий"/>
-                    <ComboBoxItem Content="Темный красный"/>
-                    <ComboBoxItem Content="Светлый красный"/>
-                    <ComboBoxItem Content="Темный зеленый"/>
-                    <ComboBoxItem Content="Светлый зеленый"/>
-                    <ComboBoxItem Content="Темный желтый"/>
-                    <ComboBoxItem Content="Светлый желтый"/>
+                <ComboBox x:Name="lookAndFeelCombo" SelectedIndex="0" Background="{Binding RelativeSource={RelativeSource Self}, Path=SelectedItem.Background}">
+                    <ComboBoxItem>
+                        <ComboBoxItem.Content>
+                            <TextBlock Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" IsHitTestVisible="false" TextWrapping="NoWrap" Margin="2"/>
+                        </ComboBoxItem.Content>
+                        <ComboBoxItem.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF081E4D" Offset="0"/>
+                                <GradientStop Color="#FF1747B0" Offset="0.23"/>
+                                <GradientStop Color="#FF2161EC" Offset="0.433"/>
+                                <GradientStop Color="#FF5A8AF1" Offset="0.77"/>
+                                <GradientStop Color="#FFC0CFF0" Offset="0.993"/>
+                            </LinearGradientBrush>
+                        </ComboBoxItem.Background>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <ComboBoxItem.Content>
+                            <TextBlock Margin="2"/>
+                        </ComboBoxItem.Content>
+                        <ComboBoxItem.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF360500" Offset="0"/>
+                                <GradientStop Color="#FF680A00" Offset="0.23"/>
+                                <GradientStop Color="#FFA41000" Offset="0.433"/>
+                                <GradientStop Color="#FFFB1900" Offset="0.77"/>
+                                <GradientStop Color="#FFFFCFC0" Offset="0.993"/>
+                            </LinearGradientBrush>
+                        </ComboBoxItem.Background>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <ComboBoxItem.Content>
+                            <TextBlock Margin="2"/>
+                        </ComboBoxItem.Content>
+                        <ComboBoxItem.Background>
+                            <LinearGradientBrush  EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF013403" Offset="0"/>
+                                <GradientStop Color="#FF005503" Offset="0.23"/>
+                                <GradientStop Color="#FF007C04" Offset="0.433"/>
+                                <GradientStop Color="#FF00A805" Offset="0.77"/>
+                                <GradientStop Color="#FFC7F0C0" Offset="0.993"/>
+                            </LinearGradientBrush>
+                        </ComboBoxItem.Background>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <ComboBoxItem.Content>
+                            <TextBlock Margin="2"/>
+                        </ComboBoxItem.Content>
+                        <ComboBoxItem.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4D2408" Offset="0"/>
+                                <GradientStop Color="#FFB07F17" Offset="0.23"/>
+                                <GradientStop Color="#FFEC9921" Offset="0.433"/>
+                                <GradientStop Color="#FFF1C85A" Offset="0.77"/>
+                                <GradientStop Color="#FFF0E9C0" Offset="0.993"/>
+                            </LinearGradientBrush>
+                        </ComboBoxItem.Background>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <ComboBoxItem.Content>
+                            <TextBlock Margin="2"/>
+                        </ComboBoxItem.Content>
+                        <ComboBoxItem.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF084A4D" Offset="0"/>
+                                <GradientStop Color="#FF17A9B0" Offset="0.23"/>
+                                <GradientStop Color="#FF21ECE3" Offset="0.433"/>
+                                <GradientStop Color="#FF5AEAF1" Offset="0.77"/>
+                                <GradientStop Color="#FFC0EEF0" Offset="0.993"/>
+                            </LinearGradientBrush>
+                        </ComboBoxItem.Background>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <ComboBoxItem.Content>
+                            <TextBlock />
+                        </ComboBoxItem.Content>
+                        <ComboBoxItem.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF40084D" Offset="0"/>
+                                <GradientStop Color="#FFA217B0" Offset="0.23"/>
+                                <GradientStop Color="#FFBE21EC" Offset="0.433"/>
+                                <GradientStop Color="#FFF15AE3" Offset="0.77"/>
+                                <GradientStop Color="#FFF0C0EC" Offset="0.993"/>
+                            </LinearGradientBrush>
+                        </ComboBoxItem.Background>
+                    </ComboBoxItem>
                 </ComboBox>
             </StackPanel>
             <Viewbox Grid.Column="3">
                 <Path Data="{StaticResource ResourceKey=AppLogo}" 
 							        Stretch="Uniform"
-							        Fill="{StaticResource MyBlueGrafient}"
+							        Fill="{Binding Path=Background, ElementName=lookAndFeelCombo}"
 							        Width="80" Height="40" 
 							        Margin="5" RenderTransformOrigin="0.5,0.5">
                     <Path.RenderTransform>
