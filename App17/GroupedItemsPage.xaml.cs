@@ -50,7 +50,7 @@ namespace App17
 
         public GroupedItemsPage()
         {
-            MyBrush = new SolidColorBrush(Colors.Red);
+            //MyBrush = new SolidColorBrush(Colors.Red);
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
@@ -214,16 +214,56 @@ namespace App17
             //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 
-        public static readonly DependencyProperty GoodBrushProperty =
-        DependencyProperty.Register(
-            "GoodBrush",
-            typeof(Brush),
-            typeof(Page), null
-        );
-        public Brush MyBrush
+        //public static readonly DependencyProperty GoodBrushProperty =
+        //DependencyProperty.Register(
+        //    "GoodBrush",
+        //    typeof(Brush),
+        //    typeof(Page), null
+        //);
+        //public Brush MyBrush
+        //{
+        //    get { return (Brush)GetValue(GoodBrushProperty); }
+        //    set { SetValue(GoodBrushProperty, (Brush)value); }
+        //}
+
+        private void lookAndFeelCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            get { return (Brush)GetValue(GoodBrushProperty); }
-            set { SetValue(GoodBrushProperty, (Brush)value); }
+            if (lookAndFeelCombo == null) return;
+
+            switch (lookAndFeelCombo.SelectedIndex)
+            {
+                case 0:
+                    //Application.Current.RequestedTheme = ApplicationTheme.Dark;
+                    //ResourceDictionary.Source = new Uri("ms-appx:///Themes/Blue.xaml", UriKind.Absolute);
+                   // MyBrush = new SolidColorBrush(Colors.Green);
+                    break;
+                case 1:
+                    //Application.Current.RequestedTheme = ApplicationTheme.Light;
+                    //ResourceDictionary.Source = new Uri("ms-appx:///Themes/Red.xaml", UriKind.Absolute);
+                    //MyBrush = new SolidColorBrush(Colors.Yellow);
+                    break;
+                //case 2:
+                //    resourceDictionary.Source = new Uri("/Themes/BureauBlue.xaml", UriKind.RelativeOrAbsolute);
+                //    break;
+                //case 3:
+                //    resourceDictionary.Source = new Uri("/Themes/ShinyDarkPurple.xaml", UriKind.RelativeOrAbsolute);
+                //    break;
+                //case 4:
+                //    resourceDictionary.Source = new Uri("/Themes/UXMusingsBubblyBlue.xaml", UriKind.RelativeOrAbsolute);
+                //    break;
+                //case 5:
+                //    resourceDictionary.Source = new Uri("/Themes/UXMusingsGreen.xaml", UriKind.RelativeOrAbsolute);
+                //    break;
+                //case 6:
+                //    resourceDictionary.Source = new Uri("/Themes/UXMusingsRoughGreen.xaml", UriKind.RelativeOrAbsolute);
+                //    break;
+                //case 7:
+                //    resourceDictionary.Source = new Uri("/Themes/RainierOrange.xaml", UriKind.RelativeOrAbsolute);
+                //    break;
+                default:
+                    //ResourceDictionary.Source = new Uri("ms-appx:///Themes/Blue.xaml", UriKind.Absolute);
+                    break;
+            }
         }
     }
 }
