@@ -68,6 +68,13 @@ namespace App17.Selectors
                         </ScrollViewer>
                     </DataTemplate>";
             }
+            else if (selectedItem.ItemType == "launch")
+            {
+                template = @"
+                <DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
+                    <Button Content=""Открыть документ"" HorizontalAlignment=""Center"" VerticalAlignment=""Center"" FontSize=""40""  />
+                </DataTemplate>";
+            }
             else 
             {
                 template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>

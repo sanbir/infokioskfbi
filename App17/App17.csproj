@@ -125,6 +125,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Documents\dninauki.jpg" />
     <Content Include="Photos\33698_html_m6c317825.jpg" />
     <Content Include="Photos\516_10.jpg" />
     <Content Include="Photos\829_1.gif" />
@@ -151,6 +152,7 @@
     <Content Include="Documents\fbi.xls" />
     <Content Include="Documents\programm%281%29.doc" />
     <Content Include="Documents\TicTacToe-4up.pdf" />
+    <Content Include="Documents\Poklonimsa_godam.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-100.png" />

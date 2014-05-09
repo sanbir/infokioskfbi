@@ -21,7 +21,7 @@ namespace App17.Selectors
             if (selectedItem.Icon == "")
             {
                 template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
-                <Grid HorizontalAlignment=""Left"" Width=""250"" Height=""250"">
+                <Grid HorizontalAlignment=""Left"" Width=""150"" Height=""150"">
                     <Border Background=""{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"">
                         <Image Source=""{Binding ImagePath}"" Stretch=""UniformToFill"" AutomationProperties.Name=""{Binding Title}""/>
                     </Border>
@@ -36,28 +36,6 @@ namespace App17.Selectors
             {
                 if (SampleDataSource.SubMenu == "StartData.json")
                 {
-//                    template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
-//                    <Viewbox Margin=""0,50"">
-//                        <Grid HorizontalAlignment=""Left"" Width=""250"" Height=""250"">
-//                            <Border Background=""{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}"">
-//                                <Viewbox Margin=""10"" HorizontalAlignment=""Center"" VerticalAlignment=""Center"">
-//                                    <Grid>
-//                                        <Path Fill=""{StaticResource MyBlueGrafient}"" Data=""{Binding Icon}"" 
-//                                              Stretch=""Uniform""  
-//                                              Width=""26"" Height=""26"" 
-//                                              Margin=""0"" RenderTransformOrigin=""0.5,0.5"">
-//                                        </Path>
-//                                    </Grid>
-//                                </Viewbox>
-//                            </Border>
-//                            <StackPanel VerticalAlignment=""Bottom"" Background=""{ThemeResource ListViewItemOverlayBackgroundThemeBrush}"">
-//                                <TextBlock Text=""{Binding Title}"" Foreground=""{ThemeResource ListViewItemOverlayForegroundThemeBrush}"" Style=""{StaticResource TitleTextBlockStyle}"" Height=""60"" Margin=""15,0,15,0""/>
-//                                <TextBlock Text=""{Binding Subtitle}"" Foreground=""{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}"" Style=""{StaticResource CaptionTextBlockStyle}"" TextWrapping=""NoWrap"" Margin=""15,0,15,10""/>
-//                            </StackPanel>
-//                        </Grid>
-//                    </Viewbox>
-//                </DataTemplate>";
-
                     template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
                                     <Grid HorizontalAlignment=""Left"" Width=""350"" Height=""350"">
                                         <Border Background=""{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"">
@@ -96,24 +74,6 @@ namespace App17.Selectors
                                     </Grid>
                                 </DataTemplate>";
                 }
-
-//                template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
-//                <Grid HorizontalAlignment=""Left"" Width=""250"" Height=""250"">
-//                    <Border Background=""{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"">
-//                        <Viewbox Margin=""10"" HorizontalAlignment=""Center"" VerticalAlignment=""Center"">
-//                            <Path Fill=""{StaticResource MyBlueGrafient}"" Data=""{Binding Icon}"" 
-//                                                        Stretch=""Uniform""  
-//                                                        Width=""26"" Height=""26"" 
-//                                                        Margin=""0"" RenderTransformOrigin=""0.5,0.5"">
-//                            </Path>
-//                        </Viewbox>
-//                    </Border>
-//                    <StackPanel VerticalAlignment=""Bottom"" Background=""{StaticResource ListViewItemOverlayBackgroundThemeBrush}"">
-//                        <TextBlock Text=""{Binding Title}"" Foreground=""{StaticResource ListViewItemOverlayForegroundThemeBrush}"" Style=""{StaticResource TitleTextStyle}"" Height=""60"" Margin=""15,0,15,0""/>
-//                        <TextBlock Text=""{Binding Subtitle}"" Foreground=""{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}"" Style=""{StaticResource CaptionTextStyle}"" TextWrapping=""NoWrap"" Margin=""15,0,15,10""/>
-//                    </StackPanel>
-//                </Grid>
-//            </DataTemplate>";
             }
 
             return XamlReader.Load(template) as DataTemplate;
