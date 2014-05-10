@@ -163,6 +163,14 @@
     <Content Include="Documents\bi_2_2_13.xls" />
     <Content Include="Documents\230201.65_Учебный_план_ИСТ.xls" />
     <Content Include="Documents\ОТЧЕТ ИТТ  за  2013г. итоговый.doc" />
+    <Content Include="Documents\080200.62_Уч.план_МЛ.xls" />
+    <Content Include="Documents\080200.68_Уч.план_ММЛ.xls" />
+    <Content Include="Documents\080506.65_Учебный_план_Л.xls" />
+    <Content Include="Documents\080801.65_Учебный_план_ПИ.xls" />
+    <Content Include="Documents\230400.62_Уч.план_БИСТ.xls" />
+    <Content Include="Documents\230400.68_Уч.план_МИСТ.xls" />
+    <Content Include="Documents\230700.62_Уч.план_БПИ.xls" />
+    <Content Include="Documents\stub.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-100.png" />
