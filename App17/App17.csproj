@@ -153,6 +153,8 @@
     <Content Include="Documents\programm%281%29.doc" />
     <Content Include="Documents\TicTacToe-4up.pdf" />
     <Content Include="Documents\Poklonimsa_godam.pdf" />
+    <None Include="DataModel\GuestData.json" />
+    <None Include="DataModel\StudyData.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-100.png" />
