@@ -126,6 +126,10 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Documents\dninauki.jpg" />
+    <Content Include="Documents\u_04850245_big.JPG" />
+    <Content Include="Documents\u_4b3c183b_big.jpg" />
+    <Content Include="Documents\u_5a782b67_big.JPG" />
+    <Content Include="Documents\u_aaf94fb6_big.JPG" />
     <Content Include="Photos\33698_html_m6c317825.jpg" />
     <Content Include="Photos\516_10.jpg" />
     <Content Include="Photos\829_1.gif" />
@@ -154,7 +158,10 @@
     <Content Include="Documents\TicTacToe-4up.pdf" />
     <Content Include="Documents\Poklonimsa_godam.pdf" />
     <None Include="DataModel\GuestData.json" />
-    <None Include="DataModel\StudyData.json" />
+    <None Include="DataModel\ScheduleData.json" />
+    <Content Include="Documents\bi_2_2_13.xls" />
+    <Content Include="Documents\230201.65_Учебный_план_ИСТ.xls" />
+    <Content Include="Documents\ОТЧЕТ ИТТ  за  2013г. итоговый.doc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-100.png" />
