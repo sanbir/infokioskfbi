@@ -1,0 +1,240 @@
+﻿<Window x:Class="WpfApplication2.StudyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StudyWindow" Height="350" Width="525" Closed="Window_Closed" WindowState="Maximized" WindowStyle="None">
+
+    <Window.Resources>
+
+        <Style x:Key="NextButton"  TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{Binding ElementName=scheduleBtn, Path=Background}" />
+            <Setter Property="MinWidth" Value="23" />
+            <Setter Property="MinHeight" Value="23" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate x:Name="btn" TargetType="{x:Type Button}">
+
+                        <Viewbox Width="{TemplateBinding Width}" 
+                                 Height="{TemplateBinding Height}" ClipToBounds="True" >
+                            <Grid Width="200" Height="200">
+                                <Ellipse x:Name="outerEllipse" Fill="{TemplateBinding Background}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="180"/>
+                                <Ellipse x:Name="middleEllepse" Fill="White" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="160"/>
+                                <Ellipse x:Name="innerEllipse" Fill="{TemplateBinding Background}" Margin="30" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="140"/>
+                                <Path Name="sign"
+                                      Fill="{Binding ElementName=scheduleBtn, Path=Foreground}"
+                                      Margin="65.597,41.585,41.661,41.673" 
+                                      RenderTransformOrigin="0.5,0.5"
+                                      Data="F1M568.254,-7.43524L568.159,-7.34277 567.977,-7.52246 546.559,-28.9417 525.484,-28.9417 549.787,-4.63446 557.439,3.01532 557.619,3.19629 550.067,10.7549 525.758,35.0583 546.834,35.0583 568.254,13.6429 578.792,3.10254 568.254,-7.43524z" 
+                                      Stretch="Uniform" >
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                        </Viewbox>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property ="Ellipse.Fill" TargetName="outerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property ="Ellipse.Fill" TargetName="outerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                                <Setter Property ="Ellipse.Fill" TargetName="innerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="HomeButton"  TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{Binding ElementName=scheduleBtn, Path=Background}" />
+            <Setter Property="MinWidth" Value="23" />
+            <Setter Property="MinHeight" Value="23" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+
+                        <Viewbox Width="{TemplateBinding Width}" 
+                                 Height="{TemplateBinding Height}" ClipToBounds="True" >
+                            <Grid Width="200" Height="200">
+                                <!--<Ellipse x:Name="edgeEllipse" Fill="White" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="200"/>-->
+                                <Ellipse x:Name="outerEllipse" Fill="{TemplateBinding Background}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="180"/>
+                                <Ellipse x:Name="middleEllepse" Fill="White" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="160"/>
+                                <Ellipse x:Name="innerEllipse" Fill="{TemplateBinding Background}" Margin="30" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="140"/>
+                                <Path  Data="F1M1337.43,1007.95L1337.43,1027.45 1350.23,1027.45 1350.23,1010.99 1362.27,1010.99 1362.27,1027.51 1374.51,1027.51 1374.51,1007.83 1356.25,991.558 1337.43,1007.95z M1374.48,995.962L1374.48,985.032 1368.65,985.032 1368.65,990.799 1356.17,979.755 1356.13,979.713 1329.47,1003.31 1333.08,1007.39 1356.13,986.992 1379.2,1007.41 1382.81,1003.34 1374.48,995.962z"
+                                   Stretch="Uniform" 
+                                   Fill="{Binding ElementName=scheduleBtn, Path=Foreground}" 
+                                   Margin="50,50,50,50" 
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                        </Viewbox>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property ="Ellipse.Fill" TargetName="outerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property ="Ellipse.Fill" TargetName="outerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                                <Setter Property ="Ellipse.Fill" TargetName="innerEllipse"
+      Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid  Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="131*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Button x:Name="backBtn" Style="{StaticResource NextButton}" RenderTransformOrigin="0.5,0.5" Margin="0,0,2,0" HorizontalAlignment="Left" VerticalAlignment="Center" Click="backBtn_Click" >
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="forwardBtn" Style="{StaticResource NextButton}" Margin="0,0,2,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Button x:Name="homeBtn" Style="{StaticResource HomeButton}" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" />
+        </StackPanel>
+
+        <Button x:Name="scheduleBtn" Margin="4,0,10,4" Click="scheduleBtn_Click" FontSize="18" Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Path Data="F1M1434.95,913.431L1434.95,977.431 1498.96,977.431 1498.96,913.431 1434.95,913.431z M1448.72,958.63L1497.53,958.63 1497.53,965.723 1448.72,965.723 1448.72,958.63z M1448.72,957.204L1448.72,950.111 1497.53,950.111 1497.53,957.204 1448.72,957.204z M1448.72,948.683L1448.72,941.59 1497.53,941.59 1497.53,948.683 1448.72,948.683z M1448.72,940.164L1448.72,933.072 1497.53,933.072 1497.53,940.164 1448.72,940.164z M1448.72,931.646L1448.72,921.781 1497.53,921.781 1497.53,931.646 1448.72,931.646z M1436.38,921.781L1447.29,921.781 1447.29,976.005 1436.38,976.005 1436.38,921.781z M1448.72,976.005L1448.72,967.15 1497.53,967.15 1497.53,976.005 1448.72,976.005z" Stretch="Uniform" Fill="{Binding ElementName=scheduleBtn, Path=Foreground}" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Viewbox>
+                <TextBlock Foreground="{Binding ElementName=scheduleBtn, Path=Foreground}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0" Grid.Row="1"><Run Language="ru-ru" Text="Расписание"/></TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="progressBtn" Margin="4,0,10,4" Grid.Column="1" FontSize="18" Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Path Data="M10.884306,31.196C10.884306,31.196,15.455992,32.284492,15.891,36.638L0,36.638C0,36.638,1.3060265,31.848951,5.2240992,31.41401L6.2866497,35.958297 7.0653543,35.9519 7.9520206,33.625594 7.1251955,32.190091 8.7788267,32.190091 7.9859018,33.661494 8.9976406,35.936099 9.6056519,35.9309z M41.617001,25.908L41.617001,34.287999 62.570002,34.287999 62.570002,25.908z M19.474001,24.291999L64.000002,24.291999 64.000002,35.959998 19.474001,35.959998z M7.8348112,21.905999C10.258134,21.905999 12.223001,23.869539 12.223001,26.292745 12.223001,28.715331 10.258134,30.679 7.8348112,30.679 5.412878,30.679 3.4480019,28.715331 3.4480019,26.292745 3.4480019,23.869539 5.412878,21.905999 7.8348112,21.905999z M10.884306,9.2900002C10.884306,9.2899997,15.455992,10.378592,15.891,14.732L0,14.732C0,14.732,1.3060265,9.942951,5.2240992,9.5073407L6.2866497,14.052299 7.0653543,14.045899 7.9520206,11.719594 7.1251955,10.283491 8.7788267,10.283491 7.9859018,11.755494 8.9976406,14.029498 9.6056519,14.024998z M53.641001,4.371999L53.641001,13.253 62.570002,13.253 62.570002,4.371999z M19.474001,2.9230005L64.000002,2.9230005 64.000002,14.589999 19.474001,14.589999z M7.8348112,0C10.258134,-4.7683716E-07 12.223001,1.9635377 12.223001,4.3868048 12.223001,6.8087215 10.258134,8.7729995 7.8348112,8.773 5.412878,8.7729995 3.4480019,6.8087215 3.4480019,4.3868048 3.4480019,1.9635377 5.412878,-4.7683716E-07 7.8348112,0z" Stretch="Uniform" Fill="{Binding ElementName=scheduleBtn, Path=Foreground}" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Viewbox>
+                <TextBlock Foreground="{Binding ElementName=scheduleBtn, Path=Foreground}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0" Grid.Row="1"><Run Language="ru-ru" Text="Успеваемость"/></TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="planBtn" Margin="4,0,10,4" Grid.Column="2" FontSize="18" Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Path Data="M38.283001,43.789999L46.834002,43.789999 46.834002,52.218998 38.283001,52.218998z M27.790001,43.789999L36.340001,43.789999 36.340001,52.218998 27.790001,52.218998z M17.23,43.789999L25.781001,43.789999 25.781001,52.218998 17.23,52.218998z M6.882,43.789999L15.433001,43.789999 15.433001,52.218998 6.882,52.218998z M48.842001,33.296999L57.392,33.296999 57.392,41.724998 48.842001,41.724998z M38.283001,33.296999L46.834002,33.296999 46.834002,41.724998 38.283001,41.724998z M27.790001,33.296999L36.340001,33.296999 36.340001,41.724998 27.790001,41.724998z M17.23,33.296999L25.781001,33.296999 25.781001,41.724998 17.23,41.724998z M6.882,33.296999L15.433001,33.296999 15.433001,41.724998 6.882,41.724998z M48.842001,23.093999L57.392,23.093999 57.392,31.521999 48.842001,31.521999z M38.283001,23.093999L46.834002,23.093999 46.834002,31.521999 38.283001,31.521999z M27.790001,23.093999L36.340001,23.093999 36.340001,31.521999 27.790001,31.521999z M17.23,23.093999L25.781001,23.093999 25.781001,31.521999 17.23,31.521999z M6.882,23.093999L15.433001,23.093999 15.433001,31.521999 6.882,31.521999z M48.842001,12.647999L57.392,12.647999 57.392,21.076999 48.842001,21.076999z M38.283001,12.647999L46.834002,12.647999 46.834002,21.076999 38.283001,21.076999z M27.790001,12.647999L36.340001,12.647999 36.340001,21.077 27.790001,21.077z M17.23,12.647999L25.781001,12.647999 25.781001,21.076999 17.23,21.076999z M4.6640606,10.494781L4.6640606,54.283707 59.335901,54.283707 59.335901,10.494781z M0,0L64,0 64,59.077999 0,59.077999z" Stretch="Uniform" Fill="{Binding ElementName=scheduleBtn, Path=Foreground}" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Viewbox>
+                <TextBlock Foreground="{Binding ElementName=scheduleBtn, Path=Foreground}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0" Grid.Row="1"><Run Language="ru-ru" Text="Учебный план"/></TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="nirsBtn" Margin="4,0,10,4" Grid.Column="3" FontSize="18" Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="28*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Path Data="M29.627398,47.287004C28.0883,47.287004 26.840999,48.534146 26.840999,50.072953 26.840999,51.611859 28.0883,52.859002 29.627398,52.859002 31.1665,52.859002 32.414001,51.611859 32.414001,50.072953 32.414001,48.534146 31.1665,47.287004 29.627398,47.287004z M15.707918,33.599L27.24458,33.599C27.713391,33.599,28.090999,33.976607,28.090999,34.442817L28.090999,37.763284C28.090999,38.229392,27.713391,38.606999,27.24458,38.606999L15.707918,38.606999C15.241608,38.606999,14.863999,38.229392,14.863999,37.763284L14.863999,34.442817C14.863999,33.976607,15.241608,33.599,15.707918,33.599z M36.362068,13.844C36.362068,13.844 48.687141,19.586155 48.351254,33.429744 48.351254,33.429744 48.197456,46.313516 35.757027,51.029908L35.181999,51.238244 35.181999,55.813004 48.619999,55.813004 48.619999,64.000001 0,64.000001 0,55.813004 23.026,55.813004 23.026,47.951001 7.8309984,47.951001 7.8309984,43.729001 30.471371,43.729001 30.532202,43.704831C32.8036,42.791242 39.47747,39.502858 40.247437,32.164155 40.247437,32.164155 41.343697,25.156409 34.674728,20.008052z M28.091047,9.2869989C31.354131,9.2869991 33.999997,11.932618 33.999997,15.195469 33.999997,18.458421 31.354131,21.103999 28.091047,21.103999 24.825265,21.103999 22.181998,18.458421 22.181997,15.195469 22.181998,11.932618 24.825265,9.2869991 28.091047,9.2869989z M14.921999,0L28.090999,0 28.090999,6.7550011C23.434545,6.7549999 19.648,10.541552 19.648001,15.195204 19.648,19.851557 23.434545,23.637999 28.090899,23.637999L28.090999,31.572999 14.921999,31.572999z" Stretch="Uniform" Fill="{Binding ElementName=scheduleBtn, Path=Foreground}" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Viewbox>
+                <TextBlock Foreground="{Binding ElementName=scheduleBtn, Path=Foreground}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0" Grid.Row="1"><Run Language="ru-ru" Text="НИРС"/></TextBlock>
+            </Grid>
+        </Button>
+    </Grid>
+</Window>
