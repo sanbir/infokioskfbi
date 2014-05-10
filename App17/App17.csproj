@@ -158,8 +158,8 @@
     <Content Include="Documents\programm%281%29.doc" />
     <Content Include="Documents\TicTacToe-4up.pdf" />
     <Content Include="Documents\Poklonimsa_godam.pdf" />
-    <None Include="DataModel\GuestData.json" />
-    <None Include="DataModel\ScheduleData.json" />
+    <Content Include="DataModel\GuestData.json" />
+    <Content Include="DataModel\ScheduleData.json" />
     <Content Include="Documents\bi_2_2_13.xls" />
     <Content Include="Documents\230201.65_Учебный_план_ИСТ.xls" />
     <Content Include="Documents\ОТЧЕТ ИТТ  за  2013г. итоговый.doc" />

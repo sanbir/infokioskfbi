@@ -75,7 +75,92 @@ namespace App17.Selectors
                     <Button Content=""Открыть документ"" HorizontalAlignment=""Center"" VerticalAlignment=""Center"" FontSize=""40""  />
                 </DataTemplate>";
             }
-            else 
+            else if (selectedItem.ItemType == "table") 
+            {
+                if (selectedItem.Title == "Бакалавриат")
+                {
+                    template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
+                    <ScrollViewer Style=""{StaticResource HorizontalScrollViewerStyle}"" Grid.Row=""1"">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height=""50""/>
+                                <RowDefinition Height=""*""/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Style=""{StaticResource PageSubheaderTextStyle}"" Margin=""70,0"">План набора на бакалавриат</TextBlock>
+                            <StackPanel Orientation=""Horizontal"" Margin=""70"" Grid.Row=""1"">
+                                <StackPanel>
+                                    <TextBlock Style=""{StaticResource GroupHeaderTextStyle}"" Margin=""10"">Направления и профиль</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"">Информационные системы и технологии</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"">Прикладная информатика</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"">Менеджмент Логистика и управление цепями поставок</TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Style=""{StaticResource GroupHeaderTextStyle}"" Margin=""10"">Полное возмещение затрат</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">30</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">35</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">75</TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Style=""{StaticResource GroupHeaderTextStyle}"" Margin=""10"">Бюджетное финансирование</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">20</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">15</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">8</TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Style=""{StaticResource GroupHeaderTextStyle}"" Margin=""10"">Всего</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">50</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">50</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">83</TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </DataTemplate>";
+                }
+                else if (selectedItem.Title == "Магистратура")
+                {
+                    template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
+                    <ScrollViewer Style=""{StaticResource HorizontalScrollViewerStyle}"" Grid.Row=""1"">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height=""50""/>
+                                <RowDefinition Height=""*""/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Style=""{StaticResource PageSubheaderTextStyle}"" Margin=""70,0"">План набора в магистратуру</TextBlock>
+                            <StackPanel Orientation=""Horizontal"" Margin=""70,50"" Grid.Row=""1"">
+                                <StackPanel>
+                                    <TextBlock Style=""{StaticResource GroupHeaderTextStyle}"" Margin=""10"">Направления и профиль</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"">Информационные системы и технологии</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"">Менеджмент Логистика и управление цепями поставок</TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Style=""{StaticResource GroupHeaderTextStyle}"" Margin=""10"">Полное возмещение затрат</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">5</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">8</TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Style=""{StaticResource GroupHeaderTextStyle}"" Margin=""10"">Бюджетное финансирование</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">5</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">2</TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Style=""{StaticResource GroupHeaderTextStyle}"" Margin=""10"">Всего</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">10</TextBlock>
+                                    <TextBlock Style=""{StaticResource TitleTextBlockStyle}"" Margin=""10"" TextAlignment=""Center"">10</TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </DataTemplate>";
+                }
+                else
+                {
+                    template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
+                    <TextBox Text=""Элемент отображается неправильно"" FontSize=""50"" />
+                </DataTemplate>";
+                }
+            }
+            else
             {
                 template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
                     <TextBox Text=""Элемент отображается неправильно"" FontSize=""50"" />

@@ -192,10 +192,10 @@ namespace App17
                 {
                     SampleDataSource.SubMenu = "TeacherData.json";
                 }
-                //else if (item.Title == "Гость")
-                //{
-                //    SampleDataSource.SubMenu = "GuestData.json";
-                //}
+                else if (selectedItem.Title == "Гость")
+                {
+                    SampleDataSource.SubMenu = "GuestData.json";
+                }
 
                 // GroupId ?
                 this.Frame.Navigate(typeof(GroupedItemsPage), itemId);
