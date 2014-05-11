@@ -14,8 +14,10 @@
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>App17_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>F2108C810B185EABA365CCD2445ABF574512393F</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile>App17_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>EFC34FA90B9D7988401B56748113C93D013452C2</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -132,6 +134,8 @@
     <Content Include="Documents\u_4b3c183b_big.jpg" />
     <Content Include="Documents\u_5a782b67_big.JPG" />
     <Content Include="Documents\u_aaf94fb6_big.JPG" />
+    <None Include="App17_StoreKey.pfx" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Photos\33698_html_m6c317825.jpg" />
     <Content Include="Photos\516_10.jpg" />
     <Content Include="Photos\829_1.gif" />
