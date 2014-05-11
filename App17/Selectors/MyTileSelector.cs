@@ -22,7 +22,7 @@ namespace App17.Selectors
             {
                 template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
                 <Grid HorizontalAlignment=""Left"" Width=""150"" Height=""150"">
-                    <Border Background=""{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"">
+                    <Border Background=""{Binding Path=MyTheme1.TileBackBrush, ElementName=pageRoot}"">
                         <Image Source=""{Binding ImagePath}"" Stretch=""UniformToFill"" AutomationProperties.Name=""{Binding Title}""/>
                     </Border>
                     <StackPanel VerticalAlignment=""Bottom"" Background=""{StaticResource ListViewItemOverlayBackgroundThemeBrush}"">
@@ -38,7 +38,7 @@ namespace App17.Selectors
                 {
                     template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
                                     <Grid HorizontalAlignment=""Left"" Width=""250"" Height=""250"">
-                                        <Border Background=""{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"">
+                                        <Border Background=""{Binding Path=MyTheme1.TileBackBrush, ElementName=pageRoot}"">
                                             <Viewbox Margin=""10"" HorizontalAlignment=""Center"" VerticalAlignment=""Center"">
                                                 <Path Fill=""{Binding Path=MyTheme1.LogoBrush, ElementName=pageRoot}"" Data=""{Binding Icon}"" 
                                                                             Stretch=""Uniform""  
@@ -58,7 +58,7 @@ namespace App17.Selectors
                 {
                     template = @"<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
                                     <Grid HorizontalAlignment=""Left"" Width=""150"" Height=""150"">
-                                        <Border Background=""{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}"">
+                                        <Border Background=""{Binding Path=MyTheme1.TileBackBrush, ElementName=pageRoot}"">
                                             <Viewbox Margin=""10"" HorizontalAlignment=""Center"" VerticalAlignment=""Center"">
                                                 <Path Fill=""{Binding Path=MyTheme1.LogoBrush, ElementName=pageRoot}"" Data=""{Binding Icon}"" 
                                                                             Stretch=""Uniform""  
