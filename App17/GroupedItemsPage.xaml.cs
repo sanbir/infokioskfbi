@@ -1,5 +1,6 @@
 ﻿using App17.Common;
 using App17.Data;
+using App17.Selectors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -122,6 +123,7 @@ namespace App17
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
+            this.GoodBrush = MyTheme.MyBrushStaticObject.GoodBrush;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -210,6 +212,18 @@ namespace App17
 
             //var itemId = ((SubjectItem)e.ClickedItem).UniqueId;
             //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+        }
+
+        public static readonly DependencyProperty GoodBrushProperty =
+        DependencyProperty.Register(
+            "GoodBrush",
+            typeof(Brush),
+            typeof(Page), null
+        );
+        public Brush GoodBrush
+        {
+            get { return (Brush)GetValue(GoodBrushProperty); }
+            set { SetValue(GoodBrushProperty, (Brush)value); }
         }
 
     }
