@@ -131,7 +131,7 @@
         * Строка 0 содержит кнопку "Назад" и заголовок страницы
         * Строка 1 содержит оставшуюся часть страницы
     -->
-    <Grid Background="{StaticResource MyLightBlue}">
+    <Grid Background="{Binding Path=MyTheme1.BackBrush, ElementName=pageRoot}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -302,7 +302,7 @@
             <Viewbox Grid.Column="3">
                 <Path Data="{StaticResource ResourceKey=AppLogo}" 
 							        Stretch="Uniform"
-							        Fill="{Binding Path=GoodBrush, ElementName=pageRoot}"
+							        Fill="{Binding Path=MyTheme1.LogoBrush, ElementName=pageRoot}"
 							        Width="80" Height="40" 
 							        Margin="5" RenderTransformOrigin="0.5,0.5">
                     <Path.RenderTransform>

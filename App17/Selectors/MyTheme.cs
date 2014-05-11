@@ -12,18 +12,12 @@ namespace App17.Selectors
 {
     public class MyTheme : DependencyObject
     {
-        public static readonly DependencyProperty GoodBrushProperty =
-        DependencyProperty.Register(
-            "GoodBrush",
-            typeof(Brush),
-            typeof(MyTheme), null
-        );
-        public Brush GoodBrush
-        {
-            get { return (Brush)GetValue(GoodBrushProperty); }
-            set { SetValue(GoodBrushProperty, (Brush)value); }
-        }
+        public Brush LogoBrush { get; set; }
+        public Brush BackBrush { get; set; }
+        public Brush TileBackBrush { get; set; }
+        public Brush TileFrontBrush { get; set; }
+        public Brush PopupBrush { get; set; }
 
-        public static MyTheme MyBrushStaticObject = new MyTheme();
+        public static List<MyTheme> MyThemeStaticList { get; set; }
     }
 }

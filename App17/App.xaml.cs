@@ -34,7 +34,15 @@ namespace App17
         /// </summary>
         public App()
         {
-            MyTheme.MyBrushStaticObject.GoodBrush = new SolidColorBrush(Colors.Violet);
+            MyTheme.MyThemeStaticList = new List<MyTheme>() 
+            {
+                new MyTheme() 
+                {
+                    LogoBrush = new SolidColorBrush(Colors.Violet),
+                    BackBrush = new SolidColorBrush(Colors.Yellow)
+                }
+            };
+
             SampleDataSource.SubMenu = "StartData.json";
             this.InitializeComponent();
             this.Suspending += OnSuspending;

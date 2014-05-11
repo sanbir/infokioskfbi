@@ -124,12 +124,12 @@ namespace App17
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
-            this.GoodBrush = MyTheme.MyBrushStaticObject.GoodBrush;
+            this.MyTheme1 = MyTheme.MyThemeStaticList[0];
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            MyTheme.MyBrushStaticObject.GoodBrush = this.GoodBrush;
+            MyTheme.MyThemeStaticList[0] = this.MyTheme1;
             navigationHelper.OnNavigatedFrom(e);
         }
 
@@ -216,16 +216,16 @@ namespace App17
             //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 
-        public static readonly DependencyProperty GoodBrushProperty =
+        public static readonly DependencyProperty MyTheme1Property =
         DependencyProperty.Register(
-            "GoodBrush",
-            typeof(Brush),
+            "MyTheme1",
+            typeof(MyTheme),
             typeof(Page), null
         );
-        public Brush GoodBrush
+        public MyTheme MyTheme1
         {
-            get { return (Brush)GetValue(GoodBrushProperty); }
-            set { SetValue(GoodBrushProperty, (Brush)value); }
+            get { return (MyTheme)GetValue(MyTheme1Property); }
+            set { SetValue(MyTheme1Property, (MyTheme)value); }
         }
 
         private void lookAndFeelCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -235,15 +235,25 @@ namespace App17
             switch (lookAndFeelCombo.SelectedIndex)
             {
                 case 0:
-                    //Application.Current.RequestedTheme = ApplicationTheme.Dark;
-                    GoodBrush = new SolidColorBrush(Colors.Red);
+                    MyTheme1 = new MyTheme()
+                    {
+                        LogoBrush = new SolidColorBrush(Colors.Pink),
+                        BackBrush = new SolidColorBrush(Colors.Blue)
+                    };
                     break;
                 case 1:
-                    //Application.Current.RequestedTheme = ApplicationTheme.Light;
-                    GoodBrush = new SolidColorBrush(Colors.Yellow);
+                    MyTheme1 = new MyTheme()
+                    {
+                        LogoBrush = new SolidColorBrush(Colors.Brown),
+                        BackBrush = new SolidColorBrush(Colors.Cyan)
+                    };
                     break;
                 default:
-                    GoodBrush = new SolidColorBrush(Colors.Red);
+                    MyTheme1 = new MyTheme()
+                    {
+                        LogoBrush = new SolidColorBrush(Colors.Olive),
+                        BackBrush = new SolidColorBrush(Colors.Orange)
+                    };
                     break;
             }
         }

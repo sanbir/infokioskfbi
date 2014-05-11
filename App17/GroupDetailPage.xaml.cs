@@ -108,7 +108,7 @@ namespace App17
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
-            this.GoodBrush1 = MyTheme.MyBrushStaticObject.GoodBrush;
+            this.GoodBrush1 = MyTheme.MyThemeStaticList[0].LogoBrush;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
