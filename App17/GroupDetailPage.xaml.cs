@@ -1,5 +1,6 @@
 ﻿using App17.Common;
 using App17.Data;
+using App17.Selectors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -107,6 +108,7 @@ namespace App17
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
+            this.GoodBrush1 = MyTheme.MyBrushStaticObject.GoodBrush;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -116,6 +118,16 @@ namespace App17
 
         #endregion
 
-
+        public static readonly DependencyProperty GoodBrush1Property =
+        DependencyProperty.Register(
+            "GoodBrush1",
+            typeof(Brush),
+            typeof(Page), null
+        );
+        public Brush GoodBrush1
+        {
+            get { return (Brush)GetValue(GoodBrush1Property); }
+            set { SetValue(GoodBrush1Property, (Brush)value); }
+        }
     }
 }
