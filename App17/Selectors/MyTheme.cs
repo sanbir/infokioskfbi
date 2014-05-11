@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Media;
 
 namespace App17.Selectors
 {
-    public class MyTheme : DependencyObject
+    public class MyTheme
     {
         public Brush LogoBrush { get; set; }
         public Brush BackBrush { get; set; }
@@ -18,6 +18,43 @@ namespace App17.Selectors
         public Brush TileFrontBrush { get; set; }
         public Brush PopupBrush { get; set; }
 
-        public static List<MyTheme> MyThemeStaticList { get; set; }
+        private static List<MyTheme> myThemeStaticList = new List<MyTheme>() 
+                {
+                    new MyTheme()
+                    {
+                        LogoBrush = new SolidColorBrush(Colors.Pink),
+                        BackBrush = new SolidColorBrush(Colors.Blue)
+                    },
+                    new MyTheme()
+                    {
+                        LogoBrush = new SolidColorBrush(Colors.Brown),
+                        BackBrush = new SolidColorBrush(Colors.Cyan)
+                    },
+                    new MyTheme()
+                    {
+                        LogoBrush = new SolidColorBrush(Colors.Olive),
+                        BackBrush = new SolidColorBrush(Colors.Orange)
+                    }
+                };
+
+        public static MyThemesNames CurrentThemeName { get; set; }
+
+        public static MyTheme CurrentTheme 
+        {
+            get
+            {
+                return myThemeStaticList[(int)CurrentThemeName];
+            }
+        }
+    }
+
+    public enum MyThemesNames 
+    {
+        Blue,
+        Red,
+        Green,
+        Orange,
+        Cyan,
+        Violet
     }
 }

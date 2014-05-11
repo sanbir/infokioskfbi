@@ -34,14 +34,7 @@ namespace App17
         /// </summary>
         public App()
         {
-            MyTheme.MyThemeStaticList = new List<MyTheme>() 
-            {
-                new MyTheme() 
-                {
-                    LogoBrush = new SolidColorBrush(Colors.Violet),
-                    BackBrush = new SolidColorBrush(Colors.Yellow)
-                }
-            };
+            MyTheme.CurrentThemeName = MyThemesNames.Blue;
 
             SampleDataSource.SubMenu = "StartData.json";
             this.InitializeComponent();

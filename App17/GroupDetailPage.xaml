@@ -27,7 +27,7 @@
         * Строка 0 содержит кнопку "Назад" и заголовок страницы
         * Строка 1 содержит оставшуюся часть страницы
     -->
-    <Grid Background="#FFF1E5CC"
+    <Grid Background="{Binding Path=MyTheme2.BackBrush, ElementName=pageRoot}"
         DataContext="{Binding Group}"
         d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/StartData.json, Type=data:SampleDataSource}}">
         <Grid.ChildrenTransitions>
@@ -208,7 +208,7 @@
             <Viewbox Grid.Column="3">
                 <Path Data="{StaticResource ResourceKey=AppLogo}" 
 							        Stretch="Uniform"
-							        Fill="{Binding Path=GoodBrush1, ElementName=pageRoot}"
+							        Fill="{Binding Path=MyTheme2.LogoBrush, ElementName=pageRoot}"
 							        Width="80" Height="40" 
 							        Margin="5" RenderTransformOrigin="0.5,0.5">
                     <Path.RenderTransform>

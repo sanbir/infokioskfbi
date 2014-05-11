@@ -108,7 +108,7 @@ namespace App17
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
-            this.GoodBrush1 = MyTheme.MyThemeStaticList[0].LogoBrush;
+            this.MyTheme2 = MyTheme.CurrentTheme;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -118,16 +118,16 @@ namespace App17
 
         #endregion
 
-        public static readonly DependencyProperty GoodBrush1Property =
+        public static readonly DependencyProperty MyTheme2Property =
         DependencyProperty.Register(
-            "GoodBrush1",
-            typeof(Brush),
+            "MyTheme2",
+            typeof(MyTheme),
             typeof(Page), null
         );
-        public Brush GoodBrush1
+        public MyTheme MyTheme2
         {
-            get { return (Brush)GetValue(GoodBrush1Property); }
-            set { SetValue(GoodBrush1Property, (Brush)value); }
+            get { return (MyTheme)GetValue(MyTheme2Property); }
+            set { SetValue(MyTheme2Property, (MyTheme)value); }
         }
     }
 }

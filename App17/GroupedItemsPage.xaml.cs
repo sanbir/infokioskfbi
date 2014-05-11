@@ -124,12 +124,11 @@ namespace App17
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
-            this.MyTheme1 = MyTheme.MyThemeStaticList[0];
+            this.MyTheme1 = MyTheme.CurrentTheme;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            MyTheme.MyThemeStaticList[0] = this.MyTheme1;
             navigationHelper.OnNavigatedFrom(e);
         }
 
@@ -232,30 +231,9 @@ namespace App17
         {
             if (lookAndFeelCombo == null) return;
 
-            switch (lookAndFeelCombo.SelectedIndex)
-            {
-                case 0:
-                    MyTheme1 = new MyTheme()
-                    {
-                        LogoBrush = new SolidColorBrush(Colors.Pink),
-                        BackBrush = new SolidColorBrush(Colors.Blue)
-                    };
-                    break;
-                case 1:
-                    MyTheme1 = new MyTheme()
-                    {
-                        LogoBrush = new SolidColorBrush(Colors.Brown),
-                        BackBrush = new SolidColorBrush(Colors.Cyan)
-                    };
-                    break;
-                default:
-                    MyTheme1 = new MyTheme()
-                    {
-                        LogoBrush = new SolidColorBrush(Colors.Olive),
-                        BackBrush = new SolidColorBrush(Colors.Orange)
-                    };
-                    break;
-            }
+            //switch (lookAndFeelCombo.SelectedIndex)
+            MyTheme.CurrentThemeName = (MyThemesNames) lookAndFeelCombo.SelectedIndex;
+            this.MyTheme1 = MyTheme.CurrentTheme;
         }
 
     }
