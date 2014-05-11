@@ -212,7 +212,7 @@
             <StackPanel Grid.Column="2">
                 <TextBlock Text="Внешний вид" Style="{StaticResource PageSubheaderTextStyle}"
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,30,0,10"/>
-                <ComboBox x:Name="lookAndFeelCombo" SelectedIndex="0" SelectionChanged="lookAndFeelCombo_SelectionChanged" Background="{Binding RelativeSource={RelativeSource Self}, Path=SelectedItem.Background}">
+                <ComboBox x:Name="lookAndFeelCombo" SelectedIndex="0" SelectionChanged="lookAndFeelCombo_SelectionChanged" Background="{Binding Path=MyTheme1.LogoBrush, ElementName=pageRoot}">
                     <ComboBoxItem>
                         <ComboBoxItem.Content>
                             <TextBlock Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" IsHitTestVisible="false" TextWrapping="NoWrap" Margin="2"/>
@@ -318,7 +318,7 @@
         <!-- Login -->
         <Grid x:Name="grdPassword" Grid.RowSpan="2" Visibility="Collapsed">
             <Grid x:Name="grdSdow" Background="#99000000"/>
-            <Grid x:Name="grdPasswordBnr" VerticalAlignment="Center" Margin="0,250" RenderTransformOrigin="0.5,0.5" Background="{Binding Path=MyTheme1.PopupBrush, ElementName=pageRoot}">
+            <Grid x:Name="grdPasswordBnr" VerticalAlignment="Center" Margin="0,250" RenderTransformOrigin="0.5,0.5" Background="{Binding Path=MyTheme1.TileBackBrush, ElementName=pageRoot}">
                 <Grid.RenderTransform>
                     <CompositeTransform/>
                 </Grid.RenderTransform>
@@ -327,10 +327,10 @@
                         <TextBlock Text="Вход для зарегистрированных пользователей" MinWidth="220" Foreground="White" FontSize="22" Style="{StaticResource CaptionTextBlockStyle}"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
-                        <TextBox MinWidth="450" MaxWidth="450" Background="{Binding Path=MyTheme1.BackBrush, ElementName=pageRoot}" Foreground="White" PlaceholderText="Логин" FontSize="16" />
+                        <TextBox MinWidth="450" MaxWidth="450" PlaceholderText="Логин" FontSize="16" />
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
-                        <PasswordBox MinWidth="450" MaxWidth="450" Background="{Binding Path=MyTheme1.BackBrush, ElementName=pageRoot}" Foreground="White" PlaceholderText="Пароль" FontSize="16"/>
+                        <PasswordBox MinWidth="450" MaxWidth="450" PlaceholderText="Пароль" FontSize="16"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
                         <Button x:Name="btnLogin" Padding="5"  Margin="4,4,25,4" Click="btnLogin_Click">
