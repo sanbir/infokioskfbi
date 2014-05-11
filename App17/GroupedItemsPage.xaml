@@ -212,7 +212,7 @@
             <StackPanel Grid.Column="2">
                 <TextBlock Text="Внешний вид" Style="{StaticResource PageSubheaderTextStyle}"
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,30,0,10"/>
-                <ComboBox x:Name="lookAndFeelCombo" SelectedIndex="0" Background="{Binding RelativeSource={RelativeSource Self}, Path=SelectedItem.Background}">
+                <ComboBox x:Name="lookAndFeelCombo" SelectedIndex="0" SelectionChanged="lookAndFeelCombo_SelectionChanged" Background="{Binding RelativeSource={RelativeSource Self}, Path=SelectedItem.Background}">
                     <ComboBoxItem>
                         <ComboBoxItem.Content>
                             <TextBlock Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" IsHitTestVisible="false" TextWrapping="NoWrap" Margin="2"/>

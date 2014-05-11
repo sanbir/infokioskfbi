@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -128,6 +129,7 @@ namespace App17
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
+            MyTheme.MyBrushStaticObject.GoodBrush = this.GoodBrush;
             navigationHelper.OnNavigatedFrom(e);
         }
 
@@ -224,6 +226,26 @@ namespace App17
         {
             get { return (Brush)GetValue(GoodBrushProperty); }
             set { SetValue(GoodBrushProperty, (Brush)value); }
+        }
+
+        private void lookAndFeelCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lookAndFeelCombo == null) return;
+
+            switch (lookAndFeelCombo.SelectedIndex)
+            {
+                case 0:
+                    //Application.Current.RequestedTheme = ApplicationTheme.Dark;
+                    GoodBrush = new SolidColorBrush(Colors.Red);
+                    break;
+                case 1:
+                    //Application.Current.RequestedTheme = ApplicationTheme.Light;
+                    GoodBrush = new SolidColorBrush(Colors.Yellow);
+                    break;
+                default:
+                    GoodBrush = new SolidColorBrush(Colors.Red);
+                    break;
+            }
         }
 
     }
