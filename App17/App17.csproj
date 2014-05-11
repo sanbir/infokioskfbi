@@ -172,6 +172,7 @@
     <Content Include="Documents\230400.68_Уч.план_МИСТ.xls" />
     <Content Include="Documents\230700.62_Уч.план_БПИ.xls" />
     <Content Include="Documents\stub.xlsx" />
+    <Content Include="Documents\Расписание 2013-2014.xls" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-100.png" />
