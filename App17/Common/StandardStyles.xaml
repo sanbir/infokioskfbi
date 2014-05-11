@@ -1879,4 +1879,13 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    <LinearGradientBrush x:Key="MyLightBlue" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFE4EAF7"/>
+        <GradientStop Color="#FFECF0F9" Offset="0.142"/>
+        <GradientStop Color="#FFD0DAF5" Offset="0.582"/>
+        <GradientStop Color="#FFF5F7FB" Offset="0.77"/>
+        <GradientStop Color="#FF95AFE8" Offset="0.993"/>
+    </LinearGradientBrush>
 </ResourceDictionary>

@@ -120,6 +120,7 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Selectors\MyItemTemlateSelector.cs" />
+    <Compile Include="Selectors\MyTheme.cs" />
     <Compile Include="Selectors\MyTileSelector.cs" />
   </ItemGroup>
   <ItemGroup>

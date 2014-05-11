@@ -131,7 +131,7 @@
         * Строка 0 содержит кнопку "Назад" и заголовок страницы
         * Строка 1 содержит оставшуюся часть страницы
     -->
-    <Grid Background="#FFF1E5CC">
+    <Grid Background="{StaticResource MyLightBlue}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -158,10 +158,9 @@
             <!--<GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalAlignment="Left" Width="250" Height="250">
-                        <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
-                            <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                        </Border>
-                        <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                        <Border Background="Aquamarine">
+                            </Border>
+                        <StackPanel VerticalAlignment="Bottom" Background="DarkOrchid">
                             <TextBlock Text="{Binding Title}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="60" Margin="15,0,15,0"/>
                             <TextBlock Text="{Binding Subtitle}" Foreground="{ThemeResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
                         </StackPanel>
