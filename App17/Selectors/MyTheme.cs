@@ -23,17 +23,50 @@ namespace App17.Selectors
                     new MyTheme()
                     {
                         LogoBrush = new SolidColorBrush(Colors.Pink),
-                        BackBrush = new SolidColorBrush(Colors.Blue)
+                        BackBrush = new SolidColorBrush(Colors.Blue),
+                        TileBackBrush = new SolidColorBrush(Colors.Green),
+                        TileFrontBrush = new SolidColorBrush(Colors.Red),
+                        PopupBrush = new SolidColorBrush(Colors.Plum)
                     },
                     new MyTheme()
                     {
                         LogoBrush = new SolidColorBrush(Colors.Brown),
-                        BackBrush = new SolidColorBrush(Colors.Cyan)
+                        BackBrush = new SolidColorBrush(Colors.Red),
+                        TileBackBrush = new SolidColorBrush(Colors.YellowGreen),
+                        TileFrontBrush = new SolidColorBrush(Colors.WhiteSmoke),
+                        PopupBrush = new SolidColorBrush(Colors.Wheat)
                     },
                     new MyTheme()
                     {
-                        LogoBrush = new SolidColorBrush(Colors.Olive),
-                        BackBrush = new SolidColorBrush(Colors.Orange)
+                        LogoBrush = new SolidColorBrush(Colors.Green),
+                        BackBrush = new SolidColorBrush(Colors.Orange),
+                        TileBackBrush = new SolidColorBrush(Colors.White),
+                        TileFrontBrush = new SolidColorBrush(Colors.Olive),
+                        PopupBrush = new SolidColorBrush(Colors.PowderBlue)
+                    },
+                    new MyTheme()
+                    {
+                        LogoBrush = new SolidColorBrush(Colors.Pink),
+                        BackBrush = new SolidColorBrush(Colors.Blue),
+                        TileBackBrush = new SolidColorBrush(Colors.Green),
+                        TileFrontBrush = new SolidColorBrush(Colors.Red),
+                        PopupBrush = new SolidColorBrush(Colors.Plum)
+                    },
+                    new MyTheme()
+                    {
+                        LogoBrush = new SolidColorBrush(Colors.Pink),
+                        BackBrush = new SolidColorBrush(Colors.Blue),
+                        TileBackBrush = new SolidColorBrush(Colors.Green),
+                        TileFrontBrush = new SolidColorBrush(Colors.Red),
+                        PopupBrush = new SolidColorBrush(Colors.Plum)
+                    },
+                    new MyTheme()
+                    {
+                        LogoBrush = new SolidColorBrush(Colors.Pink),
+                        BackBrush = new SolidColorBrush(Colors.Blue),
+                        TileBackBrush = new SolidColorBrush(Colors.Green),
+                        TileFrontBrush = new SolidColorBrush(Colors.Red),
+                        PopupBrush = new SolidColorBrush(Colors.Plum)
                     }
                 };
 
